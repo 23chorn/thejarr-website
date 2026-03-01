@@ -272,36 +272,6 @@
         <p class="feature-body">Made a mistake? Send "undo" within 24 hours to reverse your last deposit. Jarr soft-deletes it and notifies your partner if the goal is shared.</p>
       </div>
 
-      <!-- Summary image — full width -->
-      <div class="feature-cell span-2" style="background: var(--amber-pale); border-top: 2px solid var(--amber);">
-        <div class="summary-inner">
-          <div>
-            <div class="feature-icon" style="background: #fff;">📊</div>
-            <h3 class="feature-title">Summary table — as an image</h3>
-            <p class="feature-body">Send "summary" and receive a clean PNG table in WhatsApp showing all your active goals — totals in each of your currencies, last deposit date, and who made the last update. Useful for a quick snapshot without scrolling through chat history.</p>
-            <div class="feature-tag" style="margin-top: 20px;">
-              <span class="tag">Goal · AED · GBP · USD · Last updated · By</span>
-            </div>
-          </div>
-          <!-- Mock summary table -->
-          <div style="background: var(--white); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-md); font-size: 12px; font-family: 'DM Sans', sans-serif;">
-            <div style="background: #0e0e0e; color: white; padding: 10px 14px; border-radius: 8px 8px 0 0; margin: -20px -20px 0; font-family: var(--font-display); font-weight: 700; font-size: 13px; margin-bottom: 12px;">📊 Chris's Savings Summary</div>
-            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; color: var(--ink-muted); font-weight: 600; font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px;">
-              <span>Goal</span><span>AED</span><span>GBP</span><span>By</span>
-            </div>
-            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; padding: 8px 0; border-top: 1px solid var(--border);">
-              <span>Japan trip</span><span style="color:var(--green);font-weight:600;">12,834</span><span style="color:var(--ink-muted);">£2,758</span><span style="color:var(--ink-muted);">Chris</span>
-            </div>
-            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; padding: 8px 0; border-top: 1px solid var(--border); background: var(--canvas); margin: 0 -4px; padding: 8px 4px;">
-              <span>Home deposit</span><span style="color:var(--green);font-weight:600;">18,350</span><span style="color:var(--ink-muted);">£3,943</span><span style="color:var(--ink-muted);">Sara</span>
-            </div>
-            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; padding: 8px 0; border-top: 2px solid var(--border); font-weight: 700;">
-              <span>TOTAL</span><span style="color:var(--amber-deep);">31,184</span><span style="color:var(--ink-muted);">£6,701</span><span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Goal management -->
       <div class="feature-cell">
         <div class="feature-icon">📁</div>
@@ -341,7 +311,6 @@
           <tr><td><span class="cmd">goals</span></td><td class="cmd-desc">List all active goals with progress</td></tr>
           <tr><td><span class="cmd">status</span></td><td class="cmd-desc">Detailed view of your current goal</td></tr>
           <tr><td><span class="cmd">history</span></td><td class="cmd-desc">View completed and archived goals</td></tr>
-          <tr><td><span class="cmd">summary</span></td><td class="cmd-desc">Receive a PNG summary table in chat</td></tr>
           <tr><td><span class="cmd">archive</span></td><td class="cmd-desc">Soft-close a goal (frees a free plan slot)</td></tr>
           <tr><td><span class="cmd">complete</span></td><td class="cmd-desc">Mark a goal as done — celebrates with you</td></tr>
           <tr><td><span class="cmd">delete</span></td><td class="cmd-desc">Permanently remove a goal and its history</td></tr>
@@ -349,17 +318,19 @@
           <tr><td colspan="2"><span class="cmd-group">Deposits</span></td></tr>
           <tr><td><span class="cmd">500</span> or <span class="cmd">AED 500</span></td><td class="cmd-desc">Log a deposit to your active goal</td></tr>
           <tr><td><span class="cmd">£200</span> or <span class="cmd">$300</span></td><td class="cmd-desc">Log a deposit in a specific currency</td></tr>
-          <tr><td><span class="cmd">2 AED 500</span></td><td class="cmd-desc">Log directly to goal #2 (skips prompt)</td></tr>
+          <tr><td><span class="cmd">2 AED 500</span></td><td class="cmd-desc">Log to goal #2 and update default</td></tr>
           <tr><td><span class="cmd">undo</span></td><td class="cmd-desc">Reverse your last deposit (within 24h)</td></tr>
           <tr><td><span class="cmd">switch goal</span></td><td class="cmd-desc">Change which goal deposits go to by default</td></tr>
 
           <tr><td colspan="2"><span class="cmd-group">Partners</span></td></tr>
-          <tr><td><span class="cmd">invite partner</span></td><td class="cmd-desc">Share a goal with someone on WhatsApp</td></tr>
+          <tr><td><span class="cmd">invite partner</span></td><td class="cmd-desc">Share a goal — sends a one-use WhatsApp link</td></tr>
+          <tr><td><span class="cmd">leave goal</span></td><td class="cmd-desc">Remove yourself from a shared goal</td></tr>
 
           <tr><td colspan="2"><span class="cmd-group">Settings</span></td></tr>
           <tr><td><span class="cmd">change name</span></td><td class="cmd-desc">Update your display name</td></tr>
           <tr><td><span class="cmd">change currency</span></td><td class="cmd-desc">Update your primary or secondary currencies</td></tr>
-          <tr><td><span class="cmd">help</span></td><td class="cmd-desc">Show the full command list</td></tr>
+          <tr><td><span class="cmd">help</span></td><td class="cmd-desc">Show the full command list in chat</td></tr>
+          <tr><td><span class="cmd">exit</span> / <span class="cmd">cancel</span></td><td class="cmd-desc">Cancel whatever is currently in progress</td></tr>
         </tbody>
       </table>
     </div>
