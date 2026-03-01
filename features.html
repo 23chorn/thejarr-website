@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features — Jarr</title>
+  <meta name="description" content="Everything Jarr can do — goal tracking, partner savings, multi-currency support, and more. All inside WhatsApp." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Page hero ────────────────────────────────────── */
+    .page-hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero-inner {
+      max-width: 680px;
+    }
+
+    /* ── Feature grid ─────────────────────────────────── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .feature-cell {
+      background: var(--white);
+      padding: 44px 40px;
+    }
+    .feature-cell.span-2 { grid-column: span 2; }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--amber-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .feature-body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .feature-tag { margin-top: 16px; }
+
+    /* ── Command reference ────────────────────────────── */
+    .cmd-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .cmd-table th {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-align: left;
+      padding: 0 0 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cmd-table td {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .cmd-table tr:last-child td { border-bottom: none; }
+    .cmd {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--amber-pale);
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .cmd-desc {
+      font-size: 14px;
+      color: var(--ink-soft);
+      padding-left: 24px;
+    }
+    .cmd-group {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber-deep);
+      padding: 24px 0 4px;
+      display: block;
+    }
+
+    /* ── Currency table ───────────────────────────────── */
+    .ccy-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .ccy-row:last-child { border-bottom: none; }
+    .ccy-flag { font-size: 24px; }
+    .ccy-name { font-weight: 600; font-size: 15px; flex: 1; }
+    .ccy-code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--ink-muted);
+      background: var(--canvas);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* ── Comparison ───────────────────────────────────── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .compare-table th {
+      padding: 16px 24px;
+      text-align: left;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--canvas);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td {
+      padding: 14px 24px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:not(:first-child) { text-align: center; }
+    .check { color: var(--green); font-size: 16px; }
+    .cross { color: #ccc; font-size: 16px; }
+    .compare-table th.highlight { background: var(--amber-pale); color: var(--amber-deep); }
+    .compare-table td.highlight { background: rgba(245,166,35,0.04); }
+
+    @media (max-width: 768px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-cell.span-2 { grid-column: span 1; }
+      .feature-cell { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">jarr<span class="nav-logo-dot"></span></a>
+    <div class="nav-links">
+      <a href="features.html" class="nav-link active">Features</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="manual.html" class="nav-link">User Manual</a>
+      <a href="https://wa.me/YOUR_NUMBER" class="nav-cta" target="_blank">Start saving →</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══ PAGE HERO ═════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="eyebrow">Features</span>
+      <h1 class="headline anim-fade-up">Everything you need.<br>Nothing you don't.</h1>
+      <p class="body-lg anim-fade-up anim-delay-1" style="margin-top: 20px;">
+        Jarr does one thing well — helps you save with intention, inside the app you already use every day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURE GRID ══════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="feature-grid">
+
+      <!-- Goal tracking -->
+      <div class="feature-cell">
+        <div class="feature-icon">🎯</div>
+        <h3 class="feature-title">Goal-based saving</h3>
+        <p class="feature-body">Create up to 3 named savings goals on the free plan — each with a target amount, optional deadline, and real-time progress tracking. Goals are yours to name: "Dubai apartment deposit", "Flight home", "Emergency fund".</p>
+        <div class="feature-tag"><span class="tag">Free plan: 3 goals</span></div>
+      </div>
+
+      <!-- Deposit logging -->
+      <div class="feature-cell">
+        <div class="feature-icon">💬</div>
+        <h3 class="feature-title">Log deposits in seconds</h3>
+        <p class="feature-body">Send an amount in any format and Jarr understands. "AED 500", "£200", "1000" — it's logged instantly in the right currency. No forms, no tapping through screens. If you have multiple goals, just prefix with a number: "2 AED 500".</p>
+        <div class="feature-tag"><span class="tag">Any currency</span></div>
+      </div>
+
+      <!-- Multi-currency -->
+      <div class="feature-cell">
+        <div class="feature-icon">💱</div>
+        <h3 class="feature-title">Multi-currency support</h3>
+        <p class="feature-body">Set one primary currency and up to two secondary currencies. Every progress update shows your total in all three. Rates are pulled from the European Central Bank via the Frankfurter API — no markup, no guesswork.</p>
+        <p class="feature-body" style="margin-top: 12px;">You can log individual deposits in any currency regardless of your defaults. Jarr converts at read time so your history is always accurate.</p>
+        <div class="feature-tag"><span class="tag">USD · GBP · AED · INR · EUR</span></div>
+      </div>
+
+      <!-- Partner goals -->
+      <div class="feature-cell">
+        <div class="feature-icon">🤝</div>
+        <h3 class="feature-title">Save with a partner</h3>
+        <p class="feature-body">Invite anyone on WhatsApp to share a goal — a spouse, flatmate, or friend. You both log deposits, see progress, and get milestone notifications. Each of you sees the total in your own primary currency.</p>
+        <p class="feature-body" style="margin-top: 12px;">Contribution breakdowns show exactly who has put in what — useful for split goals like a shared house deposit.</p>
+        <div class="feature-tag"><span class="tag">Free plan included</span></div>
+      </div>
+
+      <!-- Milestones -->
+      <div class="feature-cell">
+        <div class="feature-icon">🏆</div>
+        <h3 class="feature-title">Milestone celebrations</h3>
+        <p class="feature-body">Jarr cheers you on at 25%, 50%, 75%, and 100% of every goal. Small moments of recognition that keep you going when saving feels slow.</p>
+      </div>
+
+      <!-- Undo -->
+      <div class="feature-cell">
+        <div class="feature-icon">↩️</div>
+        <h3 class="feature-title">Undo a deposit</h3>
+        <p class="feature-body">Made a mistake? Send "undo" within 24 hours to reverse your last deposit. Jarr soft-deletes it and notifies your partner if the goal is shared.</p>
+      </div>
+
+      <!-- Summary image — full width -->
+      <div class="feature-cell span-2" style="background: var(--amber-pale); border-top: 2px solid var(--amber);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+          <div>
+            <div class="feature-icon" style="background: #fff;">📊</div>
+            <h3 class="feature-title">Summary table — as an image</h3>
+            <p class="feature-body">Send "summary" and receive a clean PNG table in WhatsApp showing all your active goals — totals in each of your currencies, last deposit date, and who made the last update. Useful for a quick snapshot without scrolling through chat history.</p>
+            <div class="feature-tag" style="margin-top: 20px;">
+              <span class="tag">Goal · AED · GBP · USD · Last updated · By</span>
+            </div>
+          </div>
+          <!-- Mock summary table -->
+          <div style="background: var(--white); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-md); font-size: 12px; font-family: 'DM Sans', sans-serif;">
+            <div style="background: #0e0e0e; color: white; padding: 10px 14px; border-radius: 8px 8px 0 0; margin: -20px -20px 0; font-family: var(--font-display); font-weight: 700; font-size: 13px; margin-bottom: 12px;">📊 Chris's Savings Summary</div>
+            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; color: var(--ink-muted); font-weight: 600; font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px;">
+              <span>Goal</span><span>AED</span><span>GBP</span><span>By</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; padding: 8px 0; border-top: 1px solid var(--border);">
+              <span>Japan trip</span><span style="color:var(--green);font-weight:600;">12,834</span><span style="color:var(--ink-muted);">£2,758</span><span style="color:var(--ink-muted);">Chris</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; padding: 8px 0; border-top: 1px solid var(--border); background: var(--canvas); margin: 0 -4px; padding: 8px 4px;">
+              <span>Home deposit</span><span style="color:var(--green);font-weight:600;">18,350</span><span style="color:var(--ink-muted);">£3,943</span><span style="color:var(--ink-muted);">Sara</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1fr; gap: 4px; padding: 8px 0; border-top: 2px solid var(--border); font-weight: 700;">
+              <span>TOTAL</span><span style="color:var(--amber-deep);">31,184</span><span style="color:var(--ink-muted);">£6,701</span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Goal management -->
+      <div class="feature-cell">
+        <div class="feature-icon">📁</div>
+        <h3 class="feature-title">Goal management</h3>
+        <p class="feature-body">Archive goals you've paused, mark them complete when you hit your target, or delete them entirely. Archived and completed goals are preserved in your history — viewable any time with "history".</p>
+      </div>
+
+      <!-- No app -->
+      <div class="feature-cell">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Zero friction onboarding</h3>
+        <p class="feature-body">No app store. No sign-up form. No email verification. Message Jarr on WhatsApp and you're set up in two minutes — name, currency, and first goal.</p>
+        <div class="feature-tag"><span class="tag-green tag">Works on any phone</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMMAND REFERENCE ═════════════════════════════ -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow">Quick reference</span>
+      <h2 class="headline" style="margin-bottom: 48px;">Every command<br>at a glance.</h2>
+
+      <table class="cmd-table">
+        <thead>
+          <tr>
+            <th style="width: 40%">You send</th>
+            <th>What happens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="2"><span class="cmd-group">Goals</span></td></tr>
+          <tr><td><span class="cmd">create goal</span></td><td class="cmd-desc">Start a new savings goal (guided flow)</td></tr>
+          <tr><td><span class="cmd">goals</span></td><td class="cmd-desc">List all active goals with progress</td></tr>
+          <tr><td><span class="cmd">status</span></td><td class="cmd-desc">Detailed view of your current goal</td></tr>
+          <tr><td><span class="cmd">history</span></td><td class="cmd-desc">View completed and archived goals</td></tr>
+          <tr><td><span class="cmd">summary</span></td><td class="cmd-desc">Receive a PNG summary table in chat</td></tr>
+          <tr><td><span class="cmd">archive</span></td><td class="cmd-desc">Soft-close a goal (frees a free plan slot)</td></tr>
+          <tr><td><span class="cmd">complete</span></td><td class="cmd-desc">Mark a goal as done — celebrates with you</td></tr>
+          <tr><td><span class="cmd">delete</span></td><td class="cmd-desc">Permanently remove a goal and its history</td></tr>
+
+          <tr><td colspan="2"><span class="cmd-group">Deposits</span></td></tr>
+          <tr><td><span class="cmd">500</span> or <span class="cmd">AED 500</span></td><td class="cmd-desc">Log a deposit to your active goal</td></tr>
+          <tr><td><span class="cmd">£200</span> or <span class="cmd">$300</span></td><td class="cmd-desc">Log a deposit in a specific currency</td></tr>
+          <tr><td><span class="cmd">2 AED 500</span></td><td class="cmd-desc">Log directly to goal #2 (skips prompt)</td></tr>
+          <tr><td><span class="cmd">undo</span></td><td class="cmd-desc">Reverse your last deposit (within 24h)</td></tr>
+          <tr><td><span class="cmd">switch goal</span></td><td class="cmd-desc">Change which goal deposits go to by default</td></tr>
+
+          <tr><td colspan="2"><span class="cmd-group">Partners</span></td></tr>
+          <tr><td><span class="cmd">invite partner</span></td><td class="cmd-desc">Share a goal with someone on WhatsApp</td></tr>
+
+          <tr><td colspan="2"><span class="cmd-group">Settings</span></td></tr>
+          <tr><td><span class="cmd">change name</span></td><td class="cmd-desc">Update your display name</td></tr>
+          <tr><td><span class="cmd">change currency</span></td><td class="cmd-desc">Update your primary or secondary currencies</td></tr>
+          <tr><td><span class="cmd">help</span></td><td class="cmd-desc">Show the full command list</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CURRENCIES ════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+      <div>
+        <span class="eyebrow">Currencies</span>
+        <h2 class="headline" style="margin-bottom: 16px;">Your money,<br>your currency.</h2>
+        <p class="body-md" style="margin-bottom: 32px;">Set one primary and up to two secondaries. All three appear in every progress update. Rates are refreshed from the ECB each time you check your status — no subscriptions, no markup.</p>
+        <p class="body-md">You can log deposits in any supported currency regardless of your default — Jarr converts at read time so nothing is ever lost in translation.</p>
+      </div>
+      <div>
+        <div class="ccy-row"><span class="ccy-flag">🇦🇪</span><span class="ccy-name">UAE Dirham</span><span class="ccy-code">AED</span></div>
+        <div class="ccy-row"><span class="ccy-flag">🇬🇧</span><span class="ccy-name">British Pound</span><span class="ccy-code">GBP</span></div>
+        <div class="ccy-row"><span class="ccy-flag">🇺🇸</span><span class="ccy-name">US Dollar</span><span class="ccy-code">USD</span></div>
+        <div class="ccy-row"><span class="ccy-flag">🇮🇳</span><span class="ccy-name">Indian Rupee</span><span class="ccy-code">INR</span></div>
+        <div class="ccy-row"><span class="ccy-flag">🇪🇺</span><span class="ccy-name">Euro</span><span class="ccy-code">EUR</span></div>
+        <p style="font-size: 13px; color: var(--ink-muted); margin-top: 16px;">More currencies coming soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARISON ════════════════════════════════════ -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 56px;">
+      <span class="eyebrow">Why Jarr</span>
+      <h2 class="headline">Why not a spreadsheet?</h2>
+    </div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="highlight">Jarr</th>
+          <th>Spreadsheet</th>
+          <th>Savings app</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No download required</td>
+          <td class="highlight"><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Partner collaboration</td>
+          <td class="highlight"><span class="check">✓</span></td>
+          <td>Manual sharing</td>
+          <td>Some</td>
+        </tr>
+        <tr>
+          <td>Multi-currency in one view</td>
+          <td class="highlight"><span class="check">✓</span></td>
+          <td>With formulas</td>
+          <td>Rarely</td>
+        </tr>
+        <tr>
+          <td>Log a deposit in 3 seconds</td>
+          <td class="highlight"><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td>Mostly</td>
+        </tr>
+        <tr>
+          <td>Milestone celebrations</td>
+          <td class="highlight"><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td>Some</td>
+        </tr>
+        <tr>
+          <td>Works where you already message</td>
+          <td class="highlight"><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-section">
+      <div>
+        <span class="eyebrow" style="color: rgba(245,166,35,0.8);">Ready?</span>
+        <h2 class="headline">Start your first goal today.</h2>
+        <p class="body-lg">Free plan. No card. No app store.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/YOUR_NUMBER" class="btn btn-primary btn-lg" target="_blank">Open in WhatsApp</a>
+        <a href="pricing.html" class="btn btn-secondary btn-lg" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);">See pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">jarr<span class="nav-logo-dot" style="width:6px;height:6px;"></span></div>
+    <div class="footer-links">
+      <a href="features.html" class="footer-link">Features</a>
+      <a href="pricing.html" class="footer-link">Pricing</a>
+      <a href="manual.html" class="footer-link">User Manual</a>
+      <a href="mailto:support@thejarr.co" class="footer-link">Contact</a>
+    </div>
+    <p class="footer-legal">© 2026 Jarr. Built in Dubai. thejarr.co</p>
+  </div>
+</footer>
+
+</body>
+</html>

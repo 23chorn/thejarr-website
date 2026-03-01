@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Manual — Jarr</title>
+  <meta name="description" content="The complete Jarr user manual — everything you need to know about using Jarr to save on WhatsApp." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
+
+    /* ── Layout ───────────────────────────────────────── */
+    .manual-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ── Sidebar nav ──────────────────────────────────── */
+    .manual-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 32px);
+    }
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+    }
+    .sidebar-nav { list-style: none; }
+    .sidebar-nav li + li { margin-top: 2px; }
+    .sidebar-link {
+      display: block;
+      font-size: 14px;
+      color: var(--ink-soft);
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+    .sidebar-link:hover { color: var(--ink); background: var(--amber-glow); border-left-color: var(--amber); }
+    .sidebar-link.active { color: var(--amber-deep); font-weight: 600; border-left-color: var(--amber); background: var(--amber-pale); }
+    .sidebar-group {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 16px 12px 6px;
+    }
+
+    /* ── Manual content ───────────────────────────────── */
+    .manual-content { min-width: 0; }
+    .manual-section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .manual-section:first-child { padding-top: 0; }
+    .manual-section:last-child { border-bottom: none; }
+    .manual-section h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .manual-section h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin: 32px 0 12px;
+    }
+    .manual-section p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .manual-section ul, .manual-section ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .manual-section li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .manual-section li strong { color: var(--ink); }
+
+    /* Inline code */
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--amber-pale);
+      color: var(--amber-deep);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* ── Callout boxes ────────────────────────────────── */
+    .callout {
+      border-left: 3px solid var(--amber);
+      background: var(--amber-pale);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 20px 0;
+    }
+    .callout p { margin: 0; font-size: 14px; color: var(--ink); }
+    .callout.info { border-color: #3b82f6; background: #eff6ff; }
+    .callout.info p { color: #1e3a5f; }
+
+    /* ── Command blocks ───────────────────────────────── */
+    .cmd-block {
+      background: var(--ink);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .cmd-block .prompt { color: rgba(255,255,255,0.35); font-size: 12px; margin-bottom: 4px; font-family: 'Courier New', monospace; }
+    .cmd-block .text { color: #fff; font-size: 14px; font-family: 'Courier New', monospace; line-height: 1.7; }
+    .cmd-block .text .amber { color: var(--amber); }
+    .cmd-block .text .green { color: #6ee7a0; }
+    .cmd-block .text .muted { color: rgba(255,255,255,0.45); }
+
+    /* ── Upload slot ──────────────────────────────────── */
+    .upload-zone {
+      border: 2px dashed var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 64px 40px;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .upload-zone:hover { border-color: var(--amber); background: var(--amber-pale); }
+    .upload-icon { font-size: 40px; margin-bottom: 16px; }
+    .upload-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .upload-subtitle { font-size: 14px; color: var(--ink-muted); margin-bottom: 24px; }
+    .upload-input { display: none; }
+    .upload-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber);
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .upload-label:hover { background: var(--amber-deep); color: #fff; }
+    .upload-note { font-size: 12px; color: var(--ink-muted); margin-top: 16px; }
+
+    /* Uploaded file display */
+    .uploaded-file {
+      display: none;
+      align-items: center;
+      gap: 16px;
+      background: var(--white);
+      border: 1.5px solid var(--amber);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+    .uploaded-file.visible { display: flex; }
+    .file-icon { font-size: 28px; }
+    .file-name { font-weight: 600; font-size: 15px; }
+    .file-size { font-size: 13px; color: var(--ink-muted); }
+    .file-remove {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--ink-muted);
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, color 0.15s;
+    }
+    .file-remove:hover { background: #fee; color: #c00; }
+
+    /* Iframe embed for uploaded PDF */
+    .manual-embed {
+      display: none;
+      width: 100%;
+      height: 80vh;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-top: 24px;
+    }
+    .manual-embed.visible { display: block; }
+
+    @media (max-width: 900px) {
+      .manual-layout { grid-template-columns: 1fr; }
+      .manual-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">jarr<span class="nav-logo-dot"></span></a>
+    <div class="nav-links">
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="manual.html" class="nav-link active">User Manual</a>
+      <a href="https://wa.me/YOUR_NUMBER" class="nav-cta" target="_blank">Start saving →</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══ PAGE HERO ═════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div style="max-width: 600px;">
+      <span class="eyebrow">User Manual</span>
+      <h1 class="headline anim-fade-up">Everything Jarr<br>can do.</h1>
+      <p class="body-lg anim-fade-up anim-delay-1" style="margin-top: 20px;">
+        A full reference for every command, flow, and feature. Bookmark this page — it updates as Jarr grows.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MANUAL BODY ════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="manual-layout">
+
+      <!-- Sidebar -->
+      <aside class="manual-sidebar">
+        <p class="sidebar-title">Contents</p>
+        <ul class="sidebar-nav">
+          <li><a href="#getting-started" class="sidebar-link active">Getting started</a></li>
+          <li><a href="#goals" class="sidebar-link">Goals</a></li>
+          <li><a href="#deposits" class="sidebar-link">Logging deposits</a></li>
+          <li><a href="#currencies" class="sidebar-link">Currencies</a></li>
+          <li><a href="#partners" class="sidebar-link">Partner saving</a></li>
+          <li><a href="#summary" class="sidebar-link">Summary image</a></li>
+          <li><a href="#settings" class="sidebar-link">Settings</a></li>
+          <li><a href="#commands" class="sidebar-link">Full command list</a></li>
+          <li><a href="#full-manual" class="sidebar-link">📄 Full manual (PDF)</a></li>
+        </ul>
+      </aside>
+
+      <!-- Content -->
+      <div class="manual-content">
+
+        <!-- Getting started -->
+        <div class="manual-section" id="getting-started">
+          <span class="eyebrow">01</span>
+          <h2>Getting started</h2>
+          <p>Jarr lives entirely in WhatsApp. There is nothing to download, no account to create, and no email to verify. Your WhatsApp number is your identity.</p>
+
+          <h3>First message</h3>
+          <p>Tap the link below (or scan the QR code on the home page) to open a WhatsApp chat with Jarr. Send any message to begin — Jarr will guide you through a short setup in three steps.</p>
+
+          <div class="callout">
+            <p><strong>Setup takes about 90 seconds.</strong> You'll be asked for your name, your primary currency, and optionally up to two secondary currencies to display alongside it.</p>
+          </div>
+
+          <h3>Onboarding steps</h3>
+          <ol>
+            <li><strong>Name</strong> — Jarr asks what to call you. Enter your first name or any display name.</li>
+            <li><strong>Primary currency</strong> — Choose from AED, GBP, USD, INR, or EUR. All amounts are displayed in this currency by default.</li>
+            <li><strong>Secondary currencies (optional)</strong> — Up to 2 additional currencies shown alongside your primary in every progress update. Skip if you only need one.</li>
+          </ol>
+
+          <p>After setup, Jarr confirms your preferences and prompts you to create your first goal.</p>
+        </div>
+
+        <!-- Goals -->
+        <div class="manual-section" id="goals">
+          <span class="eyebrow">02</span>
+          <h2>Goals</h2>
+          <p>A goal is a named savings target with an optional amount and deadline. You can have up to 3 active goals on the free plan, or unlimited on Pro.</p>
+
+          <h3>Creating a goal</h3>
+          <p>Send <code>create goal</code> to begin. Jarr will ask for:</p>
+          <ul>
+            <li><strong>Goal name</strong> — anything you like ("Dubai apartment", "Emergency fund", "Trip to Japan")</li>
+            <li><strong>Target amount</strong> — in your primary currency. You can type the amount with or without the currency symbol.</li>
+            <li><strong>Deadline (optional)</strong> — a date in any readable format ("Dec 2026", "31/12/2026", "next Christmas")</li>
+          </ul>
+
+          <div class="cmd-block">
+            <p class="prompt">You →</p>
+            <p class="text">create goal</p>
+            <p class="prompt" style="margin-top:12px;">Jarr →</p>
+            <p class="text"><span class="green">What would you like to call this goal?</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">Dubai apartment deposit</p>
+            <p class="prompt" style="margin-top:8px;">Jarr →</p>
+            <p class="text"><span class="green">What's your target amount? (AED)</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">50000</p>
+            <p class="prompt" style="margin-top:8px;">Jarr →</p>
+            <p class="text"><span class="green">✅ Goal created: <span class="amber">Dubai apartment deposit</span><br>Target: AED 50,000<br><br>Start logging deposits any time.</span></p>
+          </div>
+
+          <h3>Viewing goals</h3>
+          <p>Send <code>goals</code> to see all active goals with a progress bar and percentage. If you have more than one goal, Jarr shows which one deposits will go to by default (marked with ← deposits go here).</p>
+          <p>Send <code>status</code> for a detailed view of your current goal — target, progress, remaining, and a progress bar.</p>
+
+          <h3>Managing goals</h3>
+          <ul>
+            <li><strong><code>archive</code></strong> — Soft-close a goal. It leaves your active list and frees up a free-plan slot. Deposit history is preserved and viewable in <code>history</code>.</li>
+            <li><strong><code>complete</code></strong> — Mark a goal as done, at any progress level. Jarr celebrates with you and notifies your partner if the goal is shared.</li>
+            <li><strong><code>delete</code></strong> — Permanently removes a goal and all its deposit history. Jarr asks for confirmation before proceeding. Your partner is notified before deletion if the goal is shared.</li>
+            <li><strong><code>history</code></strong> — View all completed and archived goals with final progress. Shows the most recent 10.</li>
+          </ul>
+
+          <div class="callout info">
+            <p><strong>Free plan tip:</strong> You can always free up a slot by sending <code>archive</code> on a goal you've paused. Archived goals keep their history — nothing is lost.</p>
+          </div>
+        </div>
+
+        <!-- Deposits -->
+        <div class="manual-section" id="deposits">
+          <span class="eyebrow">03</span>
+          <h2>Logging deposits</h2>
+          <p>Deposits are how you record money you've saved. Jarr accepts amounts in a natural format and logs them instantly.</p>
+
+          <h3>Basic deposit</h3>
+          <p>If you have one active goal, just send an amount:</p>
+          <div class="cmd-block">
+            <p class="text"><span class="muted">You send:</span>  500</p>
+            <p class="text"><span class="muted">Or:</span>        AED 500</p>
+            <p class="text"><span class="muted">Or:</span>        £200</p>
+            <p class="text"><span class="muted">Or:</span>        $300</p>
+          </div>
+          <p>Jarr logs the deposit and replies with updated progress, including all your secondary currencies.</p>
+
+          <h3>Currency override</h3>
+          <p>If you include a currency symbol or code, Jarr logs the deposit in that currency and converts it to your goal's base currency for the progress total. Your primary currency doesn't need to match the deposit currency.</p>
+          <p>Supported formats: <code>£200</code>, <code>$300</code>, <code>€150</code>, <code>₹5000</code>, <code>AED 500</code>, <code>500 gbp</code></p>
+
+          <h3>Multiple goals</h3>
+          <p>If you have more than one active goal, Jarr deposits to your current default goal (shown in <code>goals</code> with a ← marker). To deposit to a specific goal without switching:</p>
+          <div class="cmd-block">
+            <p class="text"><span class="muted">Goal number + amount:</span></p>
+            <p class="text"><span class="amber">2</span> AED 500   <span class="muted">→ logs to goal #2</span></p>
+            <p class="text"><span class="amber">1</span> £200       <span class="muted">→ logs to goal #1 in GBP</span></p>
+          </div>
+          <p>To change which goal receives deposits by default, send <code>switch goal</code>.</p>
+
+          <h3>Undoing a deposit</h3>
+          <p>Send <code>undo</code> within 24 hours to reverse your last deposit. Jarr will confirm the reversal and notify your partner if the goal is shared. Deposits older than 24 hours cannot be undone.</p>
+        </div>
+
+        <!-- Currencies -->
+        <div class="manual-section" id="currencies">
+          <span class="eyebrow">04</span>
+          <h2>Currencies</h2>
+          <p>Jarr supports five currencies at launch: <strong>AED, GBP, USD, INR, EUR</strong>.</p>
+
+          <h3>Primary currency</h3>
+          <p>Set during onboarding. All progress summaries and goal totals are shown in your primary currency first. Exchange rates are refreshed from the European Central Bank each time you check <code>status</code> or <code>goals</code>.</p>
+
+          <h3>Secondary currencies</h3>
+          <p>You can add up to 2 secondary currencies. These appear in parentheses after your primary in every progress update — for example: <em>AED 18,500 (£3,975 · $5,030)</em>.</p>
+
+          <h3>Changing your currencies</h3>
+          <p>Send <code>change currency</code> at any time. Jarr will walk you through selecting a new primary and updating your secondaries. Existing deposits and goals are unaffected — only the display changes.</p>
+
+          <div class="callout">
+            <p><strong>Exchange rates:</strong> Rates are mid-market rates from the European Central Bank. There is no markup. Rates are cached and refreshed when you actively check your progress.</p>
+          </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="manual-section" id="partners">
+          <span class="eyebrow">05</span>
+          <h2>Partner saving</h2>
+          <p>Any active goal can be shared with one partner — a spouse, flatmate, friend, or family member. Both of you log deposits, see progress, and get milestone notifications.</p>
+
+          <h3>Inviting a partner</h3>
+          <p>Send <code>invite partner</code>. Jarr will ask which goal to share (if you have more than one) then send you a WhatsApp invite link to forward to your partner.</p>
+          <p>Your partner taps the link, messages Jarr, and is connected to your shared goal. If they're new to Jarr, they'll complete the 90-second onboarding first.</p>
+
+          <h3>How shared goals work</h3>
+          <ul>
+            <li>Both partners see the total combined progress.</li>
+            <li>Each partner sees amounts in their own primary currency — you might see AED while your partner sees GBP.</li>
+            <li>Deposit confirmations show a breakdown of who has contributed what.</li>
+            <li>Milestone messages go to both partners simultaneously.</li>
+          </ul>
+
+          <h3>Partner notifications</h3>
+          <p>Your partner is notified when:</p>
+          <ul>
+            <li>You log a deposit to the shared goal</li>
+            <li>You undo a deposit</li>
+            <li>A milestone is reached</li>
+            <li>You archive, complete, or delete the shared goal</li>
+          </ul>
+        </div>
+
+        <!-- Summary -->
+        <div class="manual-section" id="summary">
+          <span class="eyebrow">06</span>
+          <h2>Summary image</h2>
+          <p>Send <code>summary</code> to receive a PNG image in WhatsApp showing a table of all your active goals.</p>
+
+          <h3>What's in the table</h3>
+          <ul>
+            <li><strong>Goal</strong> — goal name</li>
+            <li><strong>Primary currency total</strong> — progress in your primary currency</li>
+            <li><strong>Secondary currency totals</strong> — one or two columns depending on your preferences</li>
+            <li><strong>Last updated</strong> — relative time of the most recent deposit ("2h ago", "3d ago")</li>
+            <li><strong>By</strong> — display name of the person who made the last deposit</li>
+          </ul>
+          <p>A totals row at the bottom sums all goals. The image header shows your name and the generation timestamp.</p>
+
+          <div class="callout">
+            <p><strong>Useful for:</strong> quick screenshots to share with a partner, reviewing all goals at once without scrolling chat history, or checking your overall savings position across currencies.</p>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="manual-section" id="settings">
+          <span class="eyebrow">07</span>
+          <h2>Settings</h2>
+
+          <h3>Change your name</h3>
+          <p>Send <code>change name</code>. Jarr shows your current name, prompts for a new one, and confirms the update. Your name appears in partner notifications and the summary image header.</p>
+
+          <h3>Change your currencies</h3>
+          <p>Send <code>change currency</code>. You can update your primary currency, add or remove secondary currencies, or clear all secondaries. Existing deposit history is unaffected.</p>
+
+          <h3>Subscription</h3>
+          <p>Send <code>upgrade</code> to get a Stripe checkout link for the Pro plan ($4.99/month). To cancel, send <code>cancel subscription</code> — your access continues until the end of the billing period.</p>
+        </div>
+
+        <!-- Command list -->
+        <div class="manual-section" id="commands">
+          <span class="eyebrow">08</span>
+          <h2>Full command list</h2>
+          <p>Send <code>help</code> in WhatsApp at any time to get this list in chat.</p>
+
+          <table style="width:100%; border-collapse:collapse; font-size:14px; margin-top: 8px;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <th style="text-align:left; padding: 10px 0; font-family: var(--font-display); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink-muted);">Command</th>
+                <th style="text-align:left; padding: 10px 0 10px 16px; font-family: var(--font-display); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink-muted);">What it does</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:var(--canvas);"><td colspan="2" style="padding:10px 0 4px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--amber-deep);">Goals</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>create goal</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Start a new savings goal</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>goals</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">List all active goals</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>status</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Detailed progress on current goal</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>history</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">View completed and archived goals</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>summary</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Receive a PNG table of all active goals</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>archive</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Soft-close a goal</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>complete</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Mark a goal as done</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>delete</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Permanently delete a goal</td></tr>
+              <tr style="background:var(--canvas);"><td colspan="2" style="padding:10px 0 4px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--amber-deep);">Deposits</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>500</code> / <code>AED 500</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Log a deposit to active goal</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>2 AED 500</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Log directly to goal #2</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>undo</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Reverse last deposit (within 24h)</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>switch goal</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Change default deposit target</td></tr>
+              <tr style="background:var(--canvas);"><td colspan="2" style="padding:10px 0 4px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--amber-deep);">Partners</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>invite partner</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Share a goal with someone on WhatsApp</td></tr>
+              <tr style="background:var(--canvas);"><td colspan="2" style="padding:10px 0 4px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--amber-deep);">Settings</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>change name</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Update your display name</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>change currency</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Update currency preferences</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>upgrade</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Get the Pro plan checkout link</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 0;"><code>help</code></td><td style="padding:10px 0 10px 16px; color:var(--ink-soft);">Show the full command list in chat</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ══ FULL MANUAL UPLOAD SLOT ══════════════════ -->
+        <div class="manual-section" id="full-manual">
+          <span class="eyebrow">Full manual</span>
+          <h2>Download the complete guide</h2>
+          <p>Upload your full user manual PDF below. Once uploaded, users will be able to read it inline or download it directly from this page.</p>
+
+          <!-- Upload zone -->
+          <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📄</div>
+            <h3 class="upload-title">Upload your user manual</h3>
+            <p class="upload-subtitle">Drag and drop a PDF here, or click to browse</p>
+            <label class="upload-label" for="manualUpload">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              Choose PDF
+            </label>
+            <input type="file" id="manualUpload" class="upload-input" accept=".pdf" />
+            <p class="upload-note">PDF only · Max 20MB</p>
+          </div>
+
+          <!-- Uploaded file confirmation -->
+          <div class="uploaded-file" id="uploadedFile">
+            <span class="file-icon">📄</span>
+            <div>
+              <div class="file-name" id="fileName">jarr-user-manual.pdf</div>
+              <div class="file-size" id="fileSize">2.4 MB</div>
+            </div>
+            <span class="file-remove" id="removeFile">Remove</span>
+          </div>
+
+          <!-- PDF embed -->
+          <iframe class="manual-embed" id="manualEmbed" title="Jarr User Manual"></iframe>
+
+          <div class="callout" style="margin-top: 32px;">
+            <p><strong>Note for Claude Code:</strong> This upload zone is a client-side preview only. To serve the PDF in production, replace this section with a static link to your hosted PDF file, or wire the file input to your CMS / storage bucket (e.g. Cloudflare R2, Supabase Storage). The iframe below will display the PDF inline once a <code>src</code> is set.</p>
+          </div>
+        </div>
+
+      </div><!-- /manual-content -->
+    </div><!-- /manual-layout -->
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">jarr<span class="nav-logo-dot" style="width:6px;height:6px;"></span></div>
+    <div class="footer-links">
+      <a href="features.html" class="footer-link">Features</a>
+      <a href="pricing.html" class="footer-link">Pricing</a>
+      <a href="manual.html" class="footer-link">User Manual</a>
+      <a href="mailto:support@thejarr.co" class="footer-link">Contact</a>
+    </div>
+    <p class="footer-legal">© 2026 Jarr. Built in Dubai. thejarr.co</p>
+  </div>
+</footer>
+
+<script>
+  // ── Active sidebar highlight on scroll ────────────
+  const sections = document.querySelectorAll('.manual-section[id]')
+  const links = document.querySelectorAll('.sidebar-link')
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'))
+        const active = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`)
+        if (active) active.classList.add('active')
+      }
+    })
+  }, { rootMargin: '-30% 0px -60% 0px' })
+
+  sections.forEach(s => observer.observe(s))
+
+  // ── File upload preview ────────────────────────────
+  const input    = document.getElementById('manualUpload')
+  const zone     = document.getElementById('uploadZone')
+  const fileCard = document.getElementById('uploadedFile')
+  const fileName = document.getElementById('fileName')
+  const fileSize = document.getElementById('fileSize')
+  const embed    = document.getElementById('manualEmbed')
+  const remove   = document.getElementById('removeFile')
+
+  const showFile = (file) => {
+    if (!file || file.type !== 'application/pdf') return
+    const url = URL.createObjectURL(file)
+    fileName.textContent = file.name
+    fileSize.textContent = (file.size / (1024 * 1024)).toFixed(1) + ' MB'
+    fileCard.classList.add('visible')
+    embed.src = url
+    embed.classList.add('visible')
+    zone.style.display = 'none'
+  }
+
+  input.addEventListener('change', e => showFile(e.target.files[0]))
+
+  // Drag and drop
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.style.borderColor = 'var(--amber)'; })
+  zone.addEventListener('dragleave', () => { zone.style.borderColor = '' })
+  zone.addEventListener('drop', e => {
+    e.preventDefault()
+    zone.style.borderColor = ''
+    showFile(e.dataTransfer.files[0])
+  })
+
+  remove.addEventListener('click', () => {
+    input.value = ''
+    fileCard.classList.remove('visible')
+    embed.classList.remove('visible')
+    embed.src = ''
+    zone.style.display = ''
+  })
+</script>
+
+</body>
+</html>
