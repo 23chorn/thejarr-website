@@ -108,6 +108,70 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .nav-cta:hover { background: var(--amber-deep); color: #fff; transform: translateY(-1px); }
 
+/* ── Mobile nav toggle ───────────────────────────────── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.nav-toggle:hover { background: var(--amber-glow); }
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile nav menu ─────────────────────────────────── */
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(250,250,248,0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 20px 20px;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: var(--shadow-md);
+  z-index: 99;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile .nav-link {
+  display: block;
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+}
+.nav-mobile .nav-mobile-cta {
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--amber);
+  padding: 13px 20px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+.nav-mobile .nav-mobile-cta:hover { background: var(--amber-deep); color: #fff; }
+
 /* ── Shared layout ───────────────────────────────────── */
 .container {
   max-width: var(--max-w);
@@ -263,14 +327,14 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   .section { padding: 64px 0; }
   .section-sm { padding: 48px 0; }
   .nav-inner { padding: 0 20px; }
-  .nav-links .nav-link { display: none; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .footer-links { flex-wrap: wrap; gap: 16px; }
 }
 @media (max-width: 480px) {
   .section { padding: 48px 0; }
   .section-sm { padding: 36px 0; }
-  .nav-cta { padding: 8px 14px; font-size: 13px; }
-  .btn-lg { padding: 14px 24px; font-size: 15px; }
+.btn-lg { padding: 14px 24px; font-size: 15px; }
   .cta-section { padding: 36px 24px !important; }
 }
