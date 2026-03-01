@@ -261,7 +261,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
   .section { padding: 64px 0; }
+  .section-sm { padding: 48px 0; }
   .nav-inner { padding: 0 20px; }
   .nav-links .nav-link { display: none; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-links { flex-wrap: wrap; gap: 16px; }
+}
+@media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .section-sm { padding: 36px 0; }
+  .nav-cta { padding: 8px 14px; font-size: 13px; }
+  .btn-lg { padding: 14px 24px; font-size: 15px; }
+  .cta-section { padding: 36px 24px !important; }
 }

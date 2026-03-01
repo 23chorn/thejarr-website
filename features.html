@@ -156,10 +156,37 @@
     .compare-table th.highlight { background: var(--amber-pale); color: var(--amber-deep); }
     .compare-table td.highlight { background: rgba(245,166,35,0.04); }
 
+    /* ── Currencies section ───────────────────────────── */
+    .currencies-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── Summary inner grid ───────────────────────────── */
+    .summary-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* ── Compare table wrapper ────────────────────────── */
+    .compare-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .compare-table { min-width: 540px; }
+
     @media (max-width: 768px) {
       .feature-grid { grid-template-columns: 1fr; }
       .feature-cell.span-2 { grid-column: span 1; }
       .feature-cell { padding: 32px 24px; }
+      .currencies-grid { grid-template-columns: 1fr; gap: 40px; }
+      .summary-inner { grid-template-columns: 1fr; }
+      .cmd-table { font-size: 13px; }
+      .cmd-desc { padding-left: 12px; }
     }
   </style>
 </head>
@@ -201,7 +228,7 @@
       <div class="feature-cell">
         <div class="feature-icon">🎯</div>
         <h3 class="feature-title">Goal-based saving</h3>
-        <p class="feature-body">Create up to 3 named savings goals on the free plan — each with a target amount, optional deadline, and real-time progress tracking. Goals are yours to name: "Dubai apartment deposit", "Flight home", "Emergency fund".</p>
+        <p class="feature-body">Create up to 3 named savings goals on the free plan — each with a target amount, optional deadline, and real-time progress tracking. Goals are yours to name: "House deposit", "Flight home", "Emergency fund".</p>
         <div class="feature-tag"><span class="tag">Free plan: 3 goals</span></div>
       </div>
 
@@ -247,7 +274,7 @@
 
       <!-- Summary image — full width -->
       <div class="feature-cell span-2" style="background: var(--amber-pale); border-top: 2px solid var(--amber);">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        <div class="summary-inner">
           <div>
             <div class="feature-icon" style="background: #fff;">📊</div>
             <h3 class="feature-title">Summary table — as an image</h3>
@@ -342,7 +369,7 @@
 <!-- ══ CURRENCIES ════════════════════════════════════ -->
 <section class="section">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+    <div class="currencies-grid">
       <div>
         <span class="eyebrow">Currencies</span>
         <h2 class="headline" style="margin-bottom: 16px;">Your money,<br>your currency.</h2>
@@ -368,7 +395,7 @@
       <span class="eyebrow">Why Jarr</span>
       <h2 class="headline">Why not a spreadsheet?</h2>
     </div>
-    <table class="compare-table">
+    <div class="compare-wrap"><table class="compare-table">
       <thead>
         <tr>
           <th></th>
@@ -415,7 +442,7 @@
           <td><span class="cross">✗</span></td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </section>
 

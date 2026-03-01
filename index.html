@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jarr — Save Together on WhatsApp</title>
-  <meta name="description" content="Jarr is a WhatsApp-native savings tracker for UAE expats. Set goals, log deposits, and save alongside your partner — no app to download." />
+  <meta name="description" content="Jarr is a WhatsApp savings tracker. Set goals, log deposits, and track progress in any currency — no app to download, no account to create." />
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* ── Hero ─────────────────────────────────────────── */
@@ -296,13 +296,19 @@
 
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 48px; padding: 60px 0; }
-      .hero-visual { order: -1; }
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
       .phone-frame { width: 260px; }
       .how-strip { grid-template-columns: 1fr; }
       .quote-grid { grid-template-columns: 1fr; }
       .cta-section { grid-template-columns: 1fr; padding: 48px 32px; }
       .cta-actions { align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .hero { gap: 32px; padding: 40px 0; }
+      .hero-sub { max-width: 100%; font-size: 17px; }
+      .phone-frame { width: 100%; max-width: 300px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -344,7 +350,7 @@
         </h1>
 
         <p class="hero-sub anim-fade-up anim-delay-2">
-          Jarr is a WhatsApp savings tracker built for UAE expats. Set goals, log deposits, track progress in your currency — no app to download, no account to create.
+          Jarr turns WhatsApp into a savings tracker. Set goals, log deposits, track progress in any currency — no app to download, no account to create.
         </p>
 
         <div class="hero-actions anim-fade-up anim-delay-3">
@@ -411,14 +417,14 @@
 <!-- ══ TRUST BAR ═════════════════════════════════════ -->
 <div class="trust-bar">
   <div class="trust-inner">
-    <span class="trust-label">Built for expats from</span>
+    <span class="trust-label">Popular in</span>
     <div class="trust-flags">
-      <span class="trust-flag"><span class="flag">🇬🇧</span> UK</span>
       <span class="trust-flag"><span class="flag">🇮🇳</span> India</span>
+      <span class="trust-flag"><span class="flag">🇳🇬</span> Nigeria</span>
+      <span class="trust-flag"><span class="flag">🇧🇷</span> Brazil</span>
+      <span class="trust-flag"><span class="flag">🇬🇧</span> UK</span>
       <span class="trust-flag"><span class="flag">🇵🇭</span> Philippines</span>
-      <span class="trust-flag"><span class="flag">🇵🇰</span> Pakistan</span>
-      <span class="trust-flag"><span class="flag">🇱🇧</span> Lebanon</span>
-      <span class="trust-flag"><span class="flag">🇪🇬</span> Egypt</span>
+      <span class="trust-flag"><span class="flag">🇦🇪</span> UAE</span>
       <span class="trust-flag" style="color: var(--ink-muted);">+ more</span>
     </div>
   </div>
@@ -457,7 +463,7 @@
   <div class="container">
     <div style="text-align: center; margin-bottom: 56px;">
       <span class="eyebrow">Early users</span>
-      <h2 class="headline">Real expats.<br>Real goals.</h2>
+      <h2 class="headline">Real people.<br>Real goals.</h2>
     </div>
 
     <div class="quote-grid">
@@ -468,18 +474,18 @@
           <div class="quote-avatar">P</div>
           <div>
             <div class="quote-name">Priya K.</div>
-            <div class="quote-role">Software engineer, Dubai Marina</div>
+            <div class="quote-role">Software engineer, Dubai</div>
           </div>
         </div>
       </div>
       <div class="quote-card">
         <div class="quote-stars">★★★★★</div>
-        <p class="quote-text">"My wife is in the UK, I'm in Abu Dhabi. We're saving together for a house deposit and Jarr just... works. We each see it in our own currency."</p>
+        <p class="quote-text">"My partner and I are saving for a house deposit from two different bank accounts. Jarr tracks it all in one place and we both see the same number."</p>
         <div class="quote-author">
           <div class="quote-avatar">A</div>
           <div>
-            <div class="quote-name">Ahmed R.</div>
-            <div class="quote-role">Finance analyst, Abu Dhabi</div>
+            <div class="quote-name">Adaeze M.</div>
+            <div class="quote-role">Product manager, Lagos</div>
           </div>
         </div>
       </div>
@@ -490,7 +496,7 @@
           <div class="quote-avatar">C</div>
           <div>
             <div class="quote-name">Claire M.</div>
-            <div class="quote-role">Teacher, Sharjah</div>
+            <div class="quote-role">Teacher, Manchester</div>
           </div>
         </div>
       </div>
