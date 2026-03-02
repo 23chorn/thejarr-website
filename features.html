@@ -6,214 +6,10 @@
   <title>Features — Jarr</title>
   <meta name="description" content="Everything Jarr can do — goal tracking, partner savings, multi-currency support, and more. All inside WhatsApp." />
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* ── Page hero ────────────────────────────────────── */
-    .page-hero {
-      padding: 80px 0 64px;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-hero-inner {
-      max-width: 680px;
-    }
-
-    /* ── Feature grid ─────────────────────────────────── */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .feature-cell {
-      background: var(--white);
-      padding: 44px 40px;
-    }
-    .feature-cell.span-2 { grid-column: span 2; }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: var(--amber-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-    .feature-title {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -0.3px;
-    }
-    .feature-body {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--ink-soft);
-    }
-    .feature-tag { margin-top: 16px; }
-
-    /* ── Command reference ────────────────────────────── */
-    .cmd-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .cmd-table th {
-      font-family: var(--font-display);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      text-align: left;
-      padding: 0 0 12px;
-      border-bottom: 1px solid var(--border);
-    }
-    .cmd-table td {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-    .cmd-table tr:last-child td { border-bottom: none; }
-    .cmd {
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink);
-      background: var(--amber-pale);
-      padding: 3px 8px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .cmd-desc {
-      font-size: 14px;
-      color: var(--ink-soft);
-      padding-left: 24px;
-    }
-    .cmd-group {
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--amber-deep);
-      padding: 24px 0 4px;
-      display: block;
-    }
-
-    /* ── Currency table ───────────────────────────────── */
-    .ccy-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .ccy-row:last-child { border-bottom: none; }
-    .ccy-flag { font-size: 24px; }
-    .ccy-name { font-weight: 600; font-size: 15px; flex: 1; }
-    .ccy-code {
-      font-family: 'Courier New', monospace;
-      font-size: 13px;
-      color: var(--ink-muted);
-      background: var(--canvas);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    /* ── Comparison ───────────────────────────────────── */
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .compare-table th {
-      padding: 16px 24px;
-      text-align: left;
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 700;
-      background: var(--canvas);
-      border-bottom: 1px solid var(--border);
-    }
-    .compare-table th:not(:first-child) { text-align: center; }
-    .compare-table td {
-      padding: 14px 24px;
-      font-size: 14px;
-      color: var(--ink-soft);
-      border-bottom: 1px solid var(--border);
-    }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table td:not(:first-child) { text-align: center; }
-    .check { color: var(--green); font-size: 16px; }
-    .cross { color: #ccc; font-size: 16px; }
-    .compare-table th.highlight { background: var(--amber-pale); color: var(--amber-deep); }
-    .compare-table td.highlight { background: rgba(245,166,35,0.04); }
-
-    /* ── Currencies section ───────────────────────────── */
-    .currencies-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    /* ── Summary inner grid ───────────────────────────── */
-    .summary-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    /* ── Compare table wrapper ────────────────────────── */
-    .compare-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .compare-table { min-width: 540px; }
-
-    @media (max-width: 768px) {
-      .feature-grid { grid-template-columns: 1fr; }
-      .feature-cell.span-2 { grid-column: span 1; }
-      .feature-cell { padding: 32px 24px; }
-      .currencies-grid { grid-template-columns: 1fr; gap: 40px; }
-      .summary-inner { grid-template-columns: 1fr; }
-      .cmd-table { font-size: 13px; }
-      .cmd-desc { padding-left: 12px; }
-    }
-  </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">jarr<span class="nav-logo-dot"></span></a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="features.html" class="nav-link active">Features</a>
-      <a href="pricing.html" class="nav-link">Pricing</a>
-      <a href="manual.html" class="nav-link">User Manual</a>
-      <a href="https://wa.me/YOUR_NUMBER" class="nav-cta" target="_blank">Start saving →</a>
-    </div>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-mobile">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="features.html" class="nav-link active">Features</a>
-    <a href="pricing.html" class="nav-link">Pricing</a>
-    <a href="manual.html" class="nav-link">User Manual</a>
-    <a href="https://wa.me/YOUR_NUMBER" class="nav-mobile-cta" target="_blank">Start saving →</a>
-  </div>
-</nav>
+<nav class="nav"></nav>
 
 <main>
 
@@ -429,36 +225,19 @@
 </section>
 
 <!-- ══ CTA ════════════════════════════════════════════ -->
-<section class="section-sm">
-  <div class="container">
-    <div class="cta-section">
-      <div>
-        <span class="eyebrow" style="color: rgba(245,166,35,0.8);">Ready?</span>
-        <h2 class="headline">Start your first goal today.</h2>
-        <p class="body-lg">Free plan. No card. No app store.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="https://wa.me/YOUR_NUMBER" class="btn btn-primary btn-lg" target="_blank">Open in WhatsApp</a>
-        <a href="pricing.html" class="btn btn-secondary btn-lg" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);">See pricing</a>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="cta-block"
+  data-eyebrow="Ready?"
+  data-headline="Start your first goal today."
+  data-body="Free plan. No card. No app store."
+  data-btn-label="Open in WhatsApp"
+  data-sec-label="See pricing"
+  data-sec-href="pricing.html"
+  data-note="Free forever. No card needed.">
+</div>
 
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">jarr<span class="nav-logo-dot" style="width:6px;height:6px;"></span></div>
-    <div class="footer-links">
-      <a href="features.html" class="footer-link">Features</a>
-      <a href="pricing.html" class="footer-link">Pricing</a>
-      <a href="manual.html" class="footer-link">User Manual</a>
-      <a href="mailto:support@thejarr.co" class="footer-link">Contact</a>
-    </div>
-    <p class="footer-legal">© 2026 Jarr. Built in Dubai. thejarr.co</p>
-  </div>
-</footer>
+<footer class="footer"></footer>
 
 <script src="main.js"></script>
 </body>
