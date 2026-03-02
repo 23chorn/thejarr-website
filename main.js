@@ -1,6 +1,6 @@
 // ── Config ────────────────────────────────────────────
 const CONFIG = {
-  waUrl:  'https://wa.me/YOUR_NUMBER',
+  waUrl:  'https://wa.me/15551512506',
   email:  'support@thejarr.co',
   year:   '2026',
   brand:  'thejarr.',
