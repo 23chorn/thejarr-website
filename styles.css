@@ -629,6 +629,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
 .quote-name { font-weight: 600; font-size: 14px; }
 .quote-role { font-size: 12px; color: var(--ink-muted); }
 
+/* ── Beta / early access block ────────────────────── */
+.beta-block {
+  background: var(--amber-pale);
+  border: 1.5px solid rgba(245,166,35,0.3);
+  border-radius: var(--radius-lg);
+  padding: 72px 48px;
+  text-align: center;
+}
+.beta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
 /* ── CTA section ──────────────────────────────────── */
 .cta-section {
   background: var(--ink);
@@ -972,13 +987,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   color: var(--ink-soft);
   margin-top: 4px;
 }
-.calc-divider {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 300;
-  color: var(--amber-deep);
-  opacity: 0.4;
-}
 
 /* ── FAQ ──────────────────────────────────────────── */
 .faq-list { max-width: 680px; margin: 0 auto; }
@@ -999,7 +1007,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
 @media (max-width: 768px) {
   .pricing-grid { grid-template-columns: 1fr; }
   .calc-strip { grid-template-columns: 1fr; padding: 28px 24px; }
-  .calc-divider { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
