@@ -661,6 +661,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+  .hero-visual { justify-content: center; }
   .phone-frame { width: 260px; }
   .how-strip { grid-template-columns: 1fr; }
   .quote-grid { grid-template-columns: 1fr; }
