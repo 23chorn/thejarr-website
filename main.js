@@ -1,9 +1,15 @@
+// ── Theme ─────────────────────────────────────────────
+;(function() {
+  const saved = localStorage.getItem('theme')
+  if (saved) document.documentElement.setAttribute('data-theme', saved)
+})()
+
 // ── Config ────────────────────────────────────────────
 const CONFIG = {
   waUrl:  'https://wa.me/971502065546',
   email:  'support@thejarr.co',
   year:   '2026',
-  brand:  'thejarr.',
+  brand:  'thejarr',
   tagline: 'Built in Dubai.',
 }
 
@@ -16,13 +22,17 @@ function buildNav() {
 
   nav.innerHTML = `
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">thejarr.<span class="nav-logo-dot"></span></a>
+      <a href="index.html" class="nav-logo">thejarr<span class="nav-logo-dot"></span></a>
       <div class="nav-links">
         <a href="index.html"    class="nav-link" data-page="index">HOME</a>
         <a href="features.html" class="nav-link" data-page="features">FEATURES</a>
         <a href="pricing.html"  class="nav-link" data-page="pricing">PRICING</a>
         <a href="manual.html"   class="nav-link" data-page="manual">USER MANUAL</a>
         <a href="${WA_URL}" class="nav-cta" target="_blank">Start saving →</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
       </div>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -65,7 +75,7 @@ function buildCTA() {
   <div class="container">
     <div class="cta-section">
       <div>
-        <span class="eyebrow" style="color:rgba(245,166,35,0.8);">${eyebrow}</span>
+        <span class="eyebrow" style="color:var(--amber);">${eyebrow}</span>
         <h2 class="headline">${headline}</h2>
         <p class="body-lg">${body}</p>
       </div>
@@ -86,7 +96,7 @@ function buildFooter() {
 
   footer.innerHTML = `
     <div class="footer-inner">
-      <div class="footer-logo">thejarr.<span class="nav-logo-dot" style="width:6px;height:6px;"></span></div>
+      <div class="footer-logo">thejarr<span class="nav-logo-dot" style="width:6px;height:6px;"></span></div>
       <div class="footer-links">
         <a href="index.html"    class="footer-link">HOME</a>
         <a href="features.html" class="footer-link">FEATURES</a>
@@ -102,6 +112,17 @@ function buildFooter() {
 buildNav()
 buildCTA()
 buildFooter()
+
+// ── Theme toggle ──────────────────────────────────────
+document.querySelectorAll('.theme-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const html = document.documentElement
+    const isDark = html.getAttribute('data-theme') === 'dark'
+    const next = isDark ? 'light' : 'dark'
+    html.setAttribute('data-theme', next)
+    localStorage.setItem('theme', next)
+  })
+})
 
 // ── Sync any hardcoded WA links in HTML ───────────────
 document.querySelectorAll('a[href*="wa.me"]').forEach(a => { a.href = CONFIG.waUrl })
