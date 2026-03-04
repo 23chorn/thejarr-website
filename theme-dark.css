@@ -79,11 +79,11 @@
     --nav-bg:           rgba(13,17,23,0.92);
     --nav-mobile-bg:    rgba(13,17,23,0.98);
     --surface-inverse:  #1a2030;
-    --amber:            #3b82f6;
-    --amber-deep:       #2563eb;
-    --amber-pale:       rgba(59,130,246,0.12);
-    --amber-glow:       rgba(59,130,246,0.15);
-    --accent-border:    rgba(59,130,246,0.35);
+    --amber:            #f5a623;
+    --amber-deep:       #d4831a;
+    --amber-pale:       rgba(245,166,35,0.12);
+    --amber-glow:       rgba(245,166,35,0.15);
+    --accent-border:    rgba(245,166,35,0.35);
     --green:            #10b981;
     --border:           rgba(255,255,255,0.08);
     --border-strong:    rgba(255,255,255,0.16);
