@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="200" ry="200" fill="#0a0d14"/>
+
+  <!-- j — vertical stem (rounded rectangle) -->
+  <rect x="448" y="408" width="72" height="288" rx="36" ry="36" fill="white"/>
+
+  <!-- j — curved tail hook -->
+  <!-- Stem continues down, hooks left and terminates with rounded end -->
+  <path
+    d="M 484,660 Q 484,744 432,768 Q 388,788 352,764"
+    fill="none"
+    stroke="white"
+    stroke-width="72"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- j — dot (white circle above stem) -->
+  <circle cx="484" cy="340" r="42" fill="white"/>
+
+  <!-- amber accent dot -->
+  <circle cx="606" cy="348" r="54" fill="#f5a623"/>
+
+</svg>

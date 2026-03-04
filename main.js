@@ -103,8 +103,9 @@ function buildFooter() {
         <a href="pricing.html"  class="footer-link">PRICING</a>
         <a href="manual.html"   class="footer-link">USER MANUAL</a>
         <a href="mailto:${CONFIG.email}" class="footer-link">CONTACT</a>
-        <a href="privacy.html" class="footer-link">PRIVACY</a>
-        <a href="terms.html"   class="footer-link">TERMS</a>
+        <a href="privacy.html"        class="footer-link">PRIVACY</a>
+        <a href="terms.html"          class="footer-link">TERMS</a>
+        <a href="data-deletion.html"  class="footer-link">DATA DELETION</a>
       </div>
       <p class="footer-legal">© ${CONFIG.year} ${CONFIG.brand} ${CONFIG.tagline} thejarr.co</p>
     </div>

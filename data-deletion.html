@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Deletion Request - thejarr</title>
+  <meta name="description" content="Request deletion of your personal data held by thejarr. We will process your request within 30 days." />
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="theme-dark.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .legal-body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .legal-body p,
+    .legal-body li {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+    .legal-body ul {
+      padding-left: 20px;
+      margin: 8px 0 16px;
+    }
+    .legal-body li { margin-bottom: 6px; }
+    .legal-body a { color: var(--amber); text-decoration: none; }
+    .legal-body a:hover { text-decoration: underline; }
+    .legal-meta {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-top: 8px;
+    }
+    .legal-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* Deletion option cards */
+    .deletion-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 32px 0;
+    }
+    @media (max-width: 560px) {
+      .deletion-options { grid-template-columns: 1fr; }
+    }
+    .deletion-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .deletion-card .dc-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .deletion-card .dc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .deletion-card .dc-body {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .deletion-card code {
+      display: inline-block;
+      background: var(--canvas);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.875rem;
+      color: var(--amber);
+      font-family: 'DM Sans', monospace;
+      letter-spacing: 0.01em;
+    }
+
+    /* Status note */
+    .status-note {
+      background: var(--amber-pale);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    .status-note p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+    }
+    .status-note strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<nav class="nav"></nav>
+
+<main>
+
+<!-- ══ PAGE HERO ═════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div style="max-width: 600px;">
+      <span class="eyebrow">Your data</span>
+      <h1 class="headline anim-fade-up">Data Deletion Request</h1>
+      <p class="body-lg anim-fade-up anim-delay-1" style="margin-top: 16px;">
+        You have the right to request deletion of your personal data held by <strong class="brand">thejarr</strong>.
+        We will process all requests within 30 days.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTENT ═══════════════════════════════════════ -->
+<section class="section" style="padding-top: 0;">
+  <div class="legal-body">
+
+    <h2 style="font-size:1.1rem; font-weight:700; color:var(--ink); margin-bottom:12px;">What data we hold</h2>
+    <p>When you use <strong class="brand">thejarr</strong>, we store:</p>
+    <ul>
+      <li>Your WhatsApp phone number</li>
+      <li>Your chosen display name</li>
+      <li>Your savings goals, target amounts, deadlines, and deposit history</li>
+      <li>Your subscription status (if applicable)</li>
+      <li>Interaction logs (command types, timestamps) for service reliability</li>
+    </ul>
+    <p>We do not store the raw text content of your WhatsApp messages beyond what is needed to process a command. Full details are in our <a href="privacy.html">Privacy Policy</a>.</p>
+
+    <h2 style="font-size:1.1rem; font-weight:700; color:var(--ink); margin: 40px 0 12px;">How to request deletion</h2>
+    <p>Choose either method below. Both are monitored and will receive a confirmation response.</p>
+
+    <div class="deletion-options">
+      <div class="deletion-card">
+        <div class="dc-icon">💬</div>
+        <div class="dc-title">Via WhatsApp</div>
+        <p class="dc-body">Open your existing chat with thejarr and send the command below. We will confirm deletion within 30 days.</p>
+        <code>delete my account</code>
+      </div>
+      <div class="deletion-card">
+        <div class="dc-icon">✉️</div>
+        <div class="dc-title">Via Email</div>
+        <p class="dc-body">Email us from the address associated with your account, or include your WhatsApp number in the request.</p>
+        <a href="mailto:privacy@thejarr.co?subject=Data%20Deletion%20Request&body=Please%20delete%20all%20personal%20data%20associated%20with%20my%20account.%20My%20WhatsApp%20number%20is%3A%20" class="btn btn-secondary" style="font-size:14px; padding: 8px 18px;">Email us</a>
+      </div>
+    </div>
+
+    <div class="status-note">
+      <p>
+        <strong>What happens next:</strong> Once your request is received, we will delete or anonymise all personal data associated with your account within <strong>30 days</strong>. You will receive a confirmation via WhatsApp or email. Billing records may be retained for the period required by applicable financial regulations.
+      </p>
+    </div>
+
+    <h2 style="font-size:1.1rem; font-weight:700; color:var(--ink); margin: 40px 0 12px;">Questions</h2>
+    <p>
+      If you have questions about your data or this process, contact us at
+      <a href="mailto:privacy@thejarr.co">privacy@thejarr.co</a>.
+    </p>
+
+    <hr class="legal-divider" />
+    <p style="font-size:13px; color:var(--ink-muted);">
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp;
+      © 2026 thejarr
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer"></footer>
+
+<script src="main.js"></script>
+</body>
+</html>
