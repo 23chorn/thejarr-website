@@ -145,7 +145,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: background 0.15s, transform 0.1s;
   margin-left: 8px;
 }
-.nav-cta:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.35); }
+.nav-cta:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,0.35); }
 .theme-toggle {
   width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
@@ -272,7 +272,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   background: var(--amber);
   color: var(--ink);
 }
-.btn-primary:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.35); }
+.btn-primary:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,0.35); }
 .btn-secondary {
   background: transparent;
   color: var(--ink);
@@ -481,7 +481,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   z-index: 2;
 }
 .phone-screen {
-  background: #e5ddd5;
+  background-color: #e5ddd5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='rgba(0,0,0,.07)'%3E%3Cellipse cx='20' cy='15' rx='4' ry='9' transform='rotate(40,20,15)'/%3E%3Cellipse cx='80' cy='5' rx='4' ry='9' transform='rotate(-30,80,5)'/%3E%3Cellipse cx='105' cy='55' rx='4' ry='9' transform='rotate(55,105,55)'/%3E%3Cellipse cx='30' cy='75' rx='4' ry='9' transform='rotate(15,30,75)'/%3E%3Cellipse cx='85' cy='95' rx='4' ry='9' transform='rotate(-50,85,95)'/%3E%3Cellipse cx='5' cy='95' rx='4' ry='9' transform='rotate(30,5,95)'/%3E%3Cellipse cx='55' cy='40' rx='3' ry='7' transform='rotate(70,55,40)'/%3E%3Cellipse cx='110' cy='25' rx='3' ry='7' transform='rotate(-15,110,25)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
   border-radius: 30px;
   overflow: hidden;
   min-height: 520px;
