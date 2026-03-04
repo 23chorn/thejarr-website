@@ -1,454 +1,313 @@
-# Jarr — Design System Reference
+# Jarr Design System
 
-This document captures every design token, typographic rule, spacing convention, and component pattern used on thejarr.co. Use it as the source of truth when building the app so the two surfaces feel like the same product.
+Extracted from the live Pulse dashboard (`web/`). Use this as the reference when building thejarr.co.
 
 ---
 
 ## Fonts
 
-Both fonts are loaded from Google Fonts.
+Two typefaces, each with a distinct role. Load via `next/font/google` (or equivalent).
 
-```
-https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap
-```
+| Role | Family | Weights | CSS variable |
+|---|---|---|---|
+| Display / headings | **Syne** | 400, 600, 700, 800 | `--font-display` |
+| Body / UI | **DM Sans** | 300, 400, 500 | `--font-body` |
 
-| Role | Family | Usage |
-|---|---|---|
-| Display / headings | **Syne** | All h1–h4, logo, labels, eyebrows, numbers |
-| Body / UI | **DM Sans** | Body copy, buttons, nav links, captions |
-
-**Key Syne weights used:** 700 (headlines), 800 (display / logo / big numbers)
-**Key DM Sans weights used:** 300 (light body), 400 (regular), 500 (medium / nav links), 600 (buttons / bold UI)
+**Usage rules**
+- `--font-display` on all `h1`–`h4`, the logo wordmark, section eyebrows, stat values, card headings, and the PIN input digits.
+- `--font-body` on all body copy, labels, captions, buttons, and navigation.
+- Display headings always get `letter-spacing: -0.5px` (tight). Hero `h1` gets `-1px`.
+- Body text at 300 weight for large supporting copy (subtitles, taglines). 400–500 for UI labels.
 
 ---
 
-## Colour Tokens
+## Colour palette
 
-### Core palette
+```css
+/* Ink (text) */
+--ink:           #0e0e0e;   /* primary text — near-black, not pure black */
+--ink-soft:      #3a3a3a;   /* secondary text, button labels */
+--ink-muted:     #888888;   /* captions, metadata, timestamps */
 
-| Token | Hex | Usage |
-|---|---|---|
-| `--ink` | `#0e0e0e` | Primary text, dark backgrounds, icon fills |
-| `--ink-soft` | `#3a3a3a` | Secondary text, body copy |
-| `--ink-muted` | `#888888` | Tertiary text, timestamps, captions, placeholders |
-| `--canvas` | `#fafaf8` | Page background (warm off-white, not pure white) |
-| `--white` | `#ffffff` | Card backgrounds, nav, footer |
+/* Canvas (backgrounds) */
+--canvas:        #fafaf8;   /* warm off-white — page background */
+--white:         #ffffff;   /* card surfaces, inputs */
 
-### Amber (primary brand colour)
+/* Amber (brand accent) */
+--amber:         #f5a623;   /* primary CTA, progress bars, logo dot, highlights */
+--amber-deep:    #d4831a;   /* eyebrow labels, links, hover states, error text */
+--amber-pale:    #fff8ec;   /* avatar backgrounds, tag fills, soft tints */
+--amber-glow:    rgba(245, 166, 35, 0.12);  /* hover overlays, focus rings */
 
-| Token | Value | Usage |
-|---|---|---|
-| `--amber` | `#f5a623` | Primary CTA buttons, logo dot, progress bars, highlights |
-| `--amber-deep` | `#d4831a` | Hover state for amber, eyebrow labels, active nav, code text |
-| `--amber-pale` | `#fff8ec` | Tinted backgrounds on cards, tag backgrounds, code bg |
-| `--amber-glow` | `rgba(245,166,35,0.12)` | Hover state backgrounds (very subtle tint) |
+/* Semantic */
+--green:         #1a7f5a;   /* completed goals, success states */
 
-### Supporting
+/* Borders */
+--border:        #e8e5df;   /* default card/divider border — warm grey */
+--border-strong: #d0cdc6;   /* input borders, stronger dividers */
+```
 
-| Token | Hex | Usage |
-|---|---|---|
-| `--green` | `#1a7f5a` | Success states, WhatsApp-adjacent elements, "free plan" tags |
-| `--border` | `#e8e5df` | All dividers and card borders (warm grey) |
-| `--border-strong` | `#d0cdc6` | Secondary button borders, stronger dividers |
+### Colour usage notes
+- The **canvas** (`#fafaf8`) is the page background — a warm off-white, never pure white. Pure white (`#ffffff`) is reserved for card surfaces only.
+- **Amber** is the sole brand colour. Use it sparingly and purposefully — progress bars, the logo dot, primary CTAs, and active states.
+- **Amber-deep** for text on light backgrounds (eyebrow labels, links). Never use `--amber` for text — it doesn't have enough contrast.
+- There is no dark mode. The palette is intentionally warm and light.
 
-### One-off colours (not tokenised)
+---
 
-| Value | Used for |
-|---|---|
-| `#e5ddd5` | WhatsApp chat pane background |
-| `#075e54` | WhatsApp header bar |
-| `#dcf8c6` | WhatsApp outgoing bubble |
-| `#e8f5e9` | WhatsApp pill background |
-| `#1b5e20` | WhatsApp pill text |
-| `#e8f5f0` | Green tag background |
+## Typography scale
+
+| Use | Size | Weight | Family | Notes |
+|---|---|---|---|---|
+| Hero h1 | `clamp(32px, 5vw, 52px)` | 800 | display | letter-spacing: -1px |
+| Section heading | 24px | 700 | display | letter-spacing: -0.5px |
+| Card heading | 18px | 700 | display | letter-spacing: -0.5px |
+| Stat value (large) | `clamp(18px, 3vw, 26px)` | 800 | display | letter-spacing: -0.5px |
+| Eyebrow label | 11px | 700 | display | uppercase, letter-spacing: 2.5px, `--amber-deep` |
+| Logo wordmark | 22px | 800 | display | letter-spacing: -0.5px |
+| Body / supporting | 18px | 300 | body | subtitles, taglines |
+| Body standard | 16px | 400 | body | |
+| UI label | 14–15px | 500–600 | body | buttons, nav items |
+| Caption | 12–13px | 400–500 | body | metadata, timestamps |
+
+**Line heights**
+- Headings: `1.1`
+- Body: `1.6`
+
+---
+
+## Spacing & layout
+
+```
+Max content width: 680px (centred)
+Page padding:      64px top/bottom, 32px left/right
+Section gaps:      40–56px between major blocks
+Card padding:      28px 32px (goal cards), 24px 28px (stat cards)
+```
 
 ---
 
 ## Shadows
 
-Three levels — always use in order of elevation.
+Three levels — use the lowest level that works.
 
-| Token | Value | When to use |
-|---|---|---|
-| `--shadow-sm` | `0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)` | Default card rest state |
-| `--shadow-md` | `0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04)` | Hovered cards, dropdowns, mobile nav |
-| `--shadow-lg` | `0 16px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06)` | Phone mockup, featured pricing card, modals |
-
-**Amber glow shadow** (buttons only):
-`0 8px 24px rgba(245,166,35,0.35)` — applied on hover of primary CTA buttons
-
----
-
-## Border Radius
-
-| Token | Value | Used on |
-|---|---|---|
-| `--radius-sm` | `6px` | Buttons, nav links, tags, small UI elements |
-| `--radius-md` | `12px` | Feature icons, code blocks, input fields |
-| `--radius-lg` | `20px` | Cards, pricing cards, large containers, CTA sections |
-| `999px` | pill | Tags, progress bars, the WhatsApp pill badge |
-| `50%` | circle | Avatars, logo dot |
-| `40px` | phone frame outer |
-| `30px` | phone screen inner |
-
----
-
-## Spacing & Layout
-
-### Max content width
-```
---max-w: 1120px
-```
-Always centred with `margin: 0 auto`. Container padding: `0 32px` desktop, `0 20px` mobile.
-
-### Section vertical rhythm
-
-| Class | Padding | Used for |
-|---|---|---|
-| `.section` | `96px 0` (desktop) / `64px 0` (768px) / `48px 0` (480px) | Standard full sections |
-| `.section-sm` | `64px 0` (desktop) / `48px 0` (768px) / `36px 0` (480px) | Tighter sections (CTA, callouts) |
-
-### Nav height
-```
---nav-h: 68px
-```
-
-### Common gaps
-- Between grid cells: `2px` (with background as border trick)
-- Between cards in a grid: `20–24px`
-- Hero gap (desktop): `64px`; (mobile): `40px`
-- Section heading to content: `48–56px`
-
----
-
-## Typography Scale
-
-### Display (hero headline)
-```
-font-family: Syne
-font-size: clamp(48px, 6vw, 80px)
-font-weight: 800
-line-height: 1.0
-letter-spacing: -2px
-```
-
-### Headline (section headings)
-```
-font-family: Syne
-font-size: clamp(32px, 4vw, 52px)
-font-weight: 700
-line-height: 1.1
-letter-spacing: -1px
-```
-
-### Subheadline
-```
-font-family: Syne
-font-size: clamp(20px, 2.5vw, 28px)
-font-weight: 600
-letter-spacing: -0.5px
-```
-
-### Eyebrow label (above headings)
-```
-font-family: Syne
-font-size: 11px
-font-weight: 700
-letter-spacing: 2.5px
-text-transform: uppercase
-color: --amber-deep
-margin-bottom: 16px
-```
-
-### Body large
-```
-font-family: DM Sans
-font-size: 18px
-line-height: 1.7
-color: --ink-soft
-```
-
-### Body medium (standard)
-```
-font-family: DM Sans
-font-size: 16px
-line-height: 1.6 (base) or 1.7 (paragraph)
-color: --ink
-```
-
-### Body small / captions
-```
-font-family: DM Sans
-font-size: 13–14px
-color: --ink-muted
-```
-
-### All headings (h1–h4 base)
-```
-font-family: Syne
-line-height: 1.1
-letter-spacing: -0.5px
+```css
+--shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);   /* resting cards */
+--shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);  /* hover, modals */
+--shadow-lg: 0 16px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06); /* dropdowns, popovers */
 ```
 
 ---
 
-## Buttons
+## Border radius
 
-All buttons share `.btn` base styles:
-```
-display: inline-flex
-align-items: center
-gap: 8px
-padding: 14px 28px
-border-radius: --radius-sm (6px)
-font-weight: 600
-font-size: 15px
-font-family: DM Sans
-transition: all 0.15s
-```
-
-### Primary button
-```
-background: --amber (#f5a623)
-color: --ink (#0e0e0e)
-
-hover:
-  background: --amber-deep (#d4831a)
-  color: #fff
-  transform: translateY(-2px)
-  box-shadow: 0 8px 24px rgba(245,166,35,0.35)
-```
-
-### Secondary button
-```
-background: transparent
-color: --ink
-border: 1.5px solid --border-strong (#d0cdc6)
-
-hover:
-  border-color: --amber
-  color: --amber-deep
-  background: --amber-glow
-```
-
-### Large modifier `.btn-lg`
-```
-padding: 17px 36px
-font-size: 16px
-```
-
-### Button on dark background
-```
-Adjust secondary border-color to rgba(255,255,255,0.2)
-Adjust secondary color to rgba(255,255,255,0.7)
-```
-
----
-
-## Cards
-
-### Standard card
-```
-background: --white
-border: 1px solid --border
-border-radius: --radius-lg (20px)
-padding: 32px
-box-shadow: --shadow-sm
-
-hover:
-  box-shadow: --shadow-md
-  transform: translateY(-2px)
-  transition: 0.2s
-```
-
-### Feature grid pattern
-Grid cells share a `2px` gap on a `--border`-coloured container background — this creates the illusion of a border between cells without double borders.
-```
-display: grid
-grid-template-columns: repeat(2, 1fr)
-gap: 2px
-background: --border
-border: 1px solid --border
-border-radius: --radius-lg
-overflow: hidden
-
-Each cell:
-  background: --white
-  padding: 44px 40px
-```
-
-### Dark CTA section
-```
-background: --ink (#0e0e0e)
-border-radius: --radius-lg (20px)
-padding: 72px 64px
-display: grid
-grid-template-columns: 1fr auto
-gap: 48px
-
-Text colours on dark:
-  headline: #fff
-  body: rgba(255,255,255,0.6)
-  eyebrow: rgba(245,166,35,0.8)
-  note: rgba(255,255,255,0.4)
-```
-
----
-
-## Tags / Badges
-
-### Amber tag (default)
-```
-background: --amber-pale (#fff8ec)
-color: --amber-deep (#d4831a)
-font-size: 12px
-font-weight: 600
-padding: 4px 10px
-border-radius: 999px
-letter-spacing: 0.3px
-```
-
-### Green tag
-```
-background: #e8f5f0
-color: --green (#1a7f5a)
-(same size/shape as amber tag)
-```
-
-### WhatsApp pill badge
-```
-display: inline-flex
-align-items: center
-gap: 8px
-background: #e8f5e9
-color: #1b5e20
-font-size: 13px
-font-weight: 600
-padding: 6px 14px 6px 10px
-border-radius: 999px
+```css
+--radius-sm:  6px;   /* buttons, tags, small inputs */
+--radius-md: 12px;   /* input boxes (PIN), medium components */
+--radius-lg: 20px;   /* cards, modal sheets */
 ```
 
 ---
 
 ## Animations
 
-### Fade up (page load / scroll into view)
-```
+```css
+/* Entrance — fade up from 24px below */
 @keyframes fadeUp {
-  from: opacity 0, translateY(24px)
-  to:   opacity 1, translateY(0)
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-duration: 0.6s
-easing: ease
-fill-mode: both
+.fade-up       { animation: fadeUp 0.6s ease both; }
+.anim-delay-1  { animation-delay: 0.1s; }
+.anim-delay-2  { animation-delay: 0.2s; }
+.anim-delay-3  { animation-delay: 0.3s; }
+
+/* Progress bar fill — used on hold-to-confirm buttons */
+@keyframes fillBar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
 ```
 
-Staggered with delay classes:
-```
-.anim-delay-1 → 0.1s
-.anim-delay-2 → 0.2s
-.anim-delay-3 → 0.3s
-.anim-delay-4 → 0.4s
-```
-
-### Interactive micro-animations
-- Button hover lift: `transform: translateY(-2px)`, `0.15s`
-- Card hover lift: `transform: translateY(-2px)`, `0.2s`
-- Nav CTA hover lift: `transform: translateY(-1px)`, `0.1s`
-- Hamburger → close: lines animate via `rotate(45deg)` / `opacity 0` / `rotate(-45deg)`, `0.25s ease`
+Use staggered `.fade-up` + `.anim-delay-N` for any list of cards entering the screen. The delay increments (100ms, 200ms, 300ms) feel natural without being slow.
 
 ---
 
-## Nav
+## Components
+
+### Logo lockup
 
 ```
-height: 68px
-position: sticky, top: 0, z-index: 100
-background: rgba(250,250,248,0.92)   ← frosted glass effect
-backdrop-filter: blur(12px)
-border-bottom: 1px solid --border
+thejarr.  ●
+```
+- Wordmark: `--font-display`, 800 weight, `--ink`, `letter-spacing: -0.5px`
+- Dot: 8–9px circle, `border-radius: 50%`, `background: --amber`
+- The period is part of the wordmark — always include it
+- Gap between wordmark and dot: 8px
 
-Logo: Syne 800, 22px, letter-spacing -0.5px
-  + 8px amber dot (8×8px circle)
+### Eyebrow label
 
-Nav links: DM Sans 500, 14px, --ink-soft
-  hover: --ink + --amber-glow background
-  active: --amber-deep, weight 600
+Small all-caps label used above section headings and card titles.
 
-CTA button: standard amber button, 9px 20px padding, no translateY on hover (just -1px)
+```
+font-family: --font-display
+font-weight: 700
+font-size:   11px
+letter-spacing: 2.5px
+text-transform: uppercase
+color: --amber-deep
 ```
 
-**Mobile** (≤768px): nav links hidden, hamburger shown. Dropdown appears below nav bar with `position: absolute; top: 100%`, same frosted glass background.
+Pairs with a larger heading directly below it.
 
----
+### Card
 
-## Design Principles
+White surface on canvas background. Two sizes used in practice:
 
-### 1. Warm neutrals, not cold greys
-The background is `#fafaf8` (warm off-white), borders are `#e8e5df` (warm grey). Never use pure `#f0f0f0` or `#e0e0e0` — everything has a slight warm/cream cast.
+**Stat card** (Victory Hall, Top Partner):
+```css
+background:    var(--white);
+border:        1px solid var(--border);
+border-radius: var(--radius-lg);
+padding:       24px 28px;
+box-shadow:    var(--shadow-sm);
+```
 
-### 2. Amber as the only accent
-One accent colour. Amber is used for CTAs, progress, highlights, active states, and brand moments. Green is used only for success/WhatsApp-adjacent states. No blues, purples, or reds in the UI (blue is reserved for `.callout.info` boxes only).
+**Goal card** (interactive, links to detail):
+```css
+background:    var(--white);
+border:        1px solid var(--border);
+border-radius: var(--radius-lg);
+padding:       28px 32px;
+box-shadow:    var(--shadow-sm);
+transition:    box-shadow 0.2s, transform 0.2s;
+```
+On hover: `box-shadow: var(--shadow-md)`, `transform: translateY(-2px)`
 
-### 3. Syne for impact, DM Sans for readability
-All "big" text — headings, labels, eyebrows, numbers — uses Syne. All functional/readable text — paragraphs, button labels, nav links, captions — uses DM Sans. Never mix them within the same semantic level.
-
-### 4. Tight negative tracking on headings
-Display: `-2px`. Headlines: `-1px`. All headings via base rule: `-0.5px`. This gives the product a sharp, modern feel. Do not use default tracking on Syne headings.
-
-### 5. Section rhythm
-Every section starts with an eyebrow label (amber, uppercase, Syne 700) followed by a headline. Consistent `48–56px` gap between heading and content. This creates a predictable, calm reading flow.
-
-### 6. Lift on hover, not colour change
-Cards and buttons primarily express interactivity through `translateY(-2px)` + shadow deepening, not just colour change. The movement signals "this is tappable" more clearly.
-
-### 7. Dark sections sparingly
-Only one dark section per page (the bottom CTA block). Its `#0e0e0e` background creates a strong visual anchor at the end of each page and drives conversion.
-
----
-
-## Responsive Breakpoints
-
-| Breakpoint | Behaviour |
-|---|---|
-| `> 768px` | Full desktop layout |
-| `≤ 768px` | Nav collapses to hamburger, single-column layouts, reduced padding |
-| `≤ 480px` | Further padding reduction, buttons go full-width, hero text tightens |
-
----
-
-## Quick Token Reference (copy-paste)
+### Progress bar
 
 ```css
-/* Colours */
---ink:          #0e0e0e;
---ink-soft:     #3a3a3a;
---ink-muted:    #888888;
---canvas:       #fafaf8;
---white:        #ffffff;
---amber:        #f5a623;
---amber-deep:   #d4831a;
---amber-pale:   #fff8ec;
---amber-glow:   rgba(245,166,35,0.12);
---green:        #1a7f5a;
---border:       #e8e5df;
---border-strong:#d0cdc6;
+/* Track */
+height: 6px; border-radius: 999px; background: var(--border);
 
-/* Shadows */
---shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
---shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
---shadow-lg: 0 16px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
-
-/* Radius */
---radius-sm: 6px;
---radius-md: 12px;
---radius-lg: 20px;
-
-/* Fonts */
---font-display: 'Syne', sans-serif;
---font-body:    'DM Sans', sans-serif;
-
-/* Layout */
---max-w:  1120px;
---nav-h:  68px;
+/* Fill */
+height: 100%; border-radius: 999px;
+background: var(--amber);           /* in progress */
+background: var(--green);           /* completed (≥100%) */
+transition: width 0.6s ease;
 ```
+
+### Deadline badge
+
+Inline pill on goal cards.
+
+```css
+font-size:   12px;
+font-weight: 600;
+padding:     4px 10px;
+border-radius: 999px;
+letter-spacing: 0.3px;
+
+/* Normal */
+background: var(--amber-pale);  color: var(--amber-deep);
+
+/* Overdue */
+background: #fff0f0;            color: #b91c1c;
+```
+
+### Avatar / initials
+
+Used for partner display.
+
+```css
+width: 44px; height: 44px;
+border-radius: 50%;
+background: var(--amber-pale);
+color: var(--amber-deep);
+font-family: var(--font-display);
+font-weight: 700;
+font-size: 15px;
+```
+
+### Stat grid (Victory Hall)
+
+Three-column grid with vertical dividers, no outer borders.
+
+```css
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+/* Columns 1–2: border-right: 1px solid var(--border); padding: 0 20px; */
+/* Column 3: no border; */
+```
+
+Stat value: `--font-display`, 800, `clamp(18px, 3vw, 26px)`, `--ink`
+Stat label: `--font-body`, 500, 12px, `--ink-muted`
+
+### Primary button
+
+```css
+background:    var(--amber);
+color:         var(--ink);
+border:        none;
+border-radius: var(--radius-sm);
+padding:       14px;
+font-family:   var(--font-body);
+font-weight:   600;
+font-size:     15px;
+cursor:        pointer;
+transition:    background 0.15s;
+
+/* Disabled / loading */
+background: var(--border);
+color:      var(--ink-muted);
+cursor:     not-allowed;
+```
+
+### Ghost / outline button (destructive)
+
+Used for "Hold to Shatter Session".
+
+```css
+background:    transparent;
+border:        1.5px solid var(--border-strong);
+color:         var(--ink-soft);
+border-radius: var(--radius-sm);
+padding:       9px 20px;
+font-family:   var(--font-body);
+font-weight:   600;
+font-size:     14px;
+transition:    border-color 0.15s, color 0.15s, background 0.15s;
+
+/* Hover */
+border-color: var(--amber);
+background:   var(--amber-glow);
+color:        var(--amber-deep);
+```
+
+### Burndown chart
+
+Pure server-rendered SVG. No client-side JS.
+
+- Viewbox: 560 × 200px
+- Actual progress line: `--amber` stroke, 2.5px, rounded linecap/join
+- Area fill under line: amber at 8% opacity
+- Ideal pace line: dashed, `--border-strong`
+- Today marker: vertical dashed line, `--border`
+- Axes: `--border` colour, minimal — no gridlines
+- Labels: 11px, `--font-body`, `--ink-muted`
+
+---
+
+## Design principles
+
+1. **Warm, not cold.** Off-white canvas (`#fafaf8`) and warm greys (`#e8e5df`) instead of pure white and cool neutrals. The palette reads like paper, not a screen.
+
+2. **Amber is precious.** One brand colour, used in one role at a time — never competing instances of amber on the same section. Progress bar or CTA button, not both.
+
+3. **Typography does the work.** Heavy Syne for numbers and headings creates visual hierarchy without decoration. Let weight and size contrast carry the page rather than colour.
+
+4. **Generous whitespace.** 56px between major sections. Cards breathe with 28–32px internal padding. Nothing is cramped.
+
+5. **Subtle motion.** The `fadeUp` entrance animation (0.6s) is the only ambient animation. Everything else (hover lifts, transitions) is 0.15–0.2s. Nothing bounces or spins.
+
+6. **One interactive pattern.** The hold-to-confirm button is the signature interaction — a slow fill bar that requires deliberate commitment. Use it only for irreversible actions.
