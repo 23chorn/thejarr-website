@@ -18,11 +18,11 @@
   --surface-inverse:  #0e0e0e;   /* dark blocks: CTA, phone, cmd blocks */
 
   /* ── Accent (brand colour) ────────────────────────── */
-  --amber:            #10b981;
-  --amber-deep:       #059669;
-  --amber-pale:       #ecfdf5;
-  --amber-glow:       rgba(16,185,129,0.12);
-  --accent-border:    rgba(16,185,129,0.3);
+  --amber:            #f5a623;
+  --amber-deep:       #d4831a;
+  --amber-pale:       #fff8ec;
+  --amber-glow:       rgba(245,166,35,0.12);
+  --accent-border:    rgba(245,166,35,0.3);
 
   /* ── Semantic ─────────────────────────────────────── */
   --green:            #10b981;

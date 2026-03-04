@@ -145,7 +145,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: background 0.15s, transform 0.1s;
   margin-left: 8px;
 }
-.nav-cta:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16,185,129,0.35); }
+.nav-cta:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.35); }
 .theme-toggle {
   width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
@@ -272,7 +272,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   background: var(--amber);
   color: var(--ink);
 }
-.btn-primary:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16,185,129,0.35); }
+.btn-primary:hover { background: var(--amber-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.35); }
 .btn-secondary {
   background: transparent;
   color: var(--ink);
