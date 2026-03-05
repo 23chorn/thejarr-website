@@ -831,7 +831,7 @@ You'll receive a WhatsApp message with your personal payment link when subscript
 
 > **You:** upgrade
 >
-> **Bot:** *The thejarr+ — $4.99/month*
+> **Bot:** *The thejarr+ — $3.99/month*
 >
 > ✅ Unlimited active goals
 > ✅ Summary image (all goals at a glance)

@@ -1003,9 +1003,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
 /* ── Pricing cards ────────────────────────────────── */
 .pricing-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
-  max-width: 820px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 .pricing-card {
@@ -1016,6 +1016,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   position: relative;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 .pricing-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .pricing-card.featured:hover { box-shadow: 0 0 0 4px var(--amber-glow), var(--shadow-lg); }
@@ -1075,7 +1077,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   color: var(--ink-muted);
   margin-bottom: 32px;
   line-height: 1.5;
-  min-height: 42px;
+  min-height: 72px;
 }
 .plan-cta { width: 100%; text-align: center; justify-content: center; border-radius: var(--radius-sm); }
 .plan-features {
@@ -1086,6 +1088,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   display: flex;
   flex-direction: column;
   gap: 14px;
+  flex: 1;
 }
 .plan-feature {
   display: flex;
