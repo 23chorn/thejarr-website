@@ -623,7 +623,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   font-weight: 500;
   color: var(--ink-soft);
 }
-.flag { font-size: 18px; }
 
 /* ── How it works strip ───────────────────────────── */
 .how-strip {
@@ -1042,8 +1041,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   margin-top: 1px;
 }
 .plan-feature .check-green {
-  background: #e8f5f0;
-  color: var(--green);
+  background: var(--amber-pale);
+  color: var(--amber-deep);
 }
 
 /* ── Usage context calc ───────────────────────────── */
