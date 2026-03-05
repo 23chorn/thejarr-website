@@ -1,3 +1,12 @@
+// ── Favicon ───────────────────────────────────────────
+;(function() {
+  const link = document.createElement('link')
+  link.rel  = 'icon'
+  link.type = 'image/png'
+  link.href = 'app_icon.png'
+  document.head.appendChild(link)
+})()
+
 // ── Theme ─────────────────────────────────────────────
 ;(function() {
   const saved = localStorage.getItem('theme')
