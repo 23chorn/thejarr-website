@@ -45,22 +45,24 @@
 }
 
 /* ── Phone mockup — dark WhatsApp palette ───────────── */
-[data-theme="dark"] .phone-header {
-  background: #1f2c34;
-}
-[data-theme="dark"] .phone-screen {
-  background: #0d1821;
-}
+[data-theme="dark"] .phone-status-bar { background: #1f2c34; }
+[data-theme="dark"] .phone-header     { background: #1f2c34; }
+[data-theme="dark"] .phone-screen     { background: #0d1821; }
+[data-theme="dark"] .phone-input-bar  { background: #1a2a35; }
+[data-theme="dark"] .phone-input-field { background: #2a3a45; color: #6a8a9a; }
+[data-theme="dark"] .phone-home-indicator { background: #0d1821; }
 [data-theme="dark"] .bubble-in  { background: #202c33; color: #e9edef; }
 [data-theme="dark"] .bubble-out { background: #005c4b; color: #e9edef; }
 [data-theme="dark"] .bubble-time { color: rgba(255,255,255,0.45); }
 
 /* ── System preference (when no explicit toggle set) ── */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .phone-header { background: #1f2c34; }
-  :root:not([data-theme="light"]) .phone-screen {
-    background: #0d1821;
-  }
+  :root:not([data-theme="light"]) .phone-status-bar  { background: #1f2c34; }
+  :root:not([data-theme="light"]) .phone-header      { background: #1f2c34; }
+  :root:not([data-theme="light"]) .phone-screen      { background: #0d1821; }
+  :root:not([data-theme="light"]) .phone-input-bar   { background: #1a2a35; }
+  :root:not([data-theme="light"]) .phone-input-field { background: #2a3a45; color: #6a8a9a; }
+  :root:not([data-theme="light"]) .phone-home-indicator { background: #0d1821; }
   :root:not([data-theme="light"]) .bubble-in  { background: #202c33; color: #e9edef; }
   :root:not([data-theme="light"]) .bubble-out { background: #005c4b; color: #e9edef; }
   :root:not([data-theme="light"]) .bubble-time { color: rgba(255,255,255,0.45); }

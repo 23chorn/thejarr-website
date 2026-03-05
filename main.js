@@ -18,7 +18,7 @@ const CONFIG = {
   waUrl:        'https://wa.me/971502065546',
   waUrlHello:   'https://wa.me/971502065546?text=Hello',
   waUrlUpgrade: 'https://wa.me/971502065546?text=upgrade',
-  email:        'support@thejarr.co',
+  email:        'chris@thejarr.co',
   year:         '2026',
   brand:        'thejarr',
   tagline:      'Built in Dubai.',

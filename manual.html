@@ -49,9 +49,11 @@
           <li><a href="#delete" class="sidebar-link">Deleting a goal</a></li>
           <li><a href="#history" class="sidebar-link">Goal history</a></li>
           <li><a href="#settings" class="sidebar-link">Settings</a></li>
+          <li><a href="#notifications" class="sidebar-link">Notifications</a></li>
           <li><a href="#help" class="sidebar-link">Help &amp; cancelling</a></li>
           <li><a href="#currencies" class="sidebar-link">Currencies &amp; formats</a></li>
           <li><a href="#limits" class="sidebar-link">Plans &amp; limits</a></li>
+          <li><a href="#upgrade" class="sidebar-link">Upgrading to thejarr+</a></li>
           <li><a href="#thelid" class="sidebar-link">thelid (thejarr+)</a></li>
           <li><a href="#reference" class="sidebar-link">Quick reference</a></li>
         </ul>
@@ -64,12 +66,12 @@
         <div class="manual-section" id="getting-started">
           <span class="eyebrow">01</span>
           <h2>Getting started</h2>
-          <p><strong class="brand">thejarr</strong> lives entirely in WhatsApp. There's nothing to download, no account to create. Message the bot and it walks you through a short setup - name, primary currency, and an optional secondary currency. The whole thing takes about 90 seconds.</p>
+          <p><strong class="brand">thejarr</strong> lives entirely in WhatsApp. There's nothing to download, no account to create. Message the bot and it walks you through a short setup — name, primary currency, and an optional secondary currency. The whole thing takes about 90 seconds.</p>
 
-          <h3>Step 1 - Your name</h3>
+          <h3>Step 1 — Your name</h3>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
-            <p class="text"><span class="green">Hi! 👋 Welcome to thejarr - your WhatsApp savings tracker.</span></p>
+            <p class="text"><span class="green">Hi! 👋 Welcome to thejarr — your WhatsApp savings tracker.</span></p>
             <p class="text"><span class="green">Before we get started, what should I call you? (First name or nickname is fine)</span></p>
             <p class="prompt" style="margin-top:12px;">You →</p>
             <p class="text">Sarah</p>
@@ -78,10 +80,10 @@
           </div>
           <p>Send your first name or a nickname (2–50 characters). This appears in messages, milestone celebrations, and partner notifications.</p>
 
-          <h3>Step 2 - Primary currency</h3>
+          <h3>Step 2 — Primary currency</h3>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
-            <p class="text"><span class="green">Which currency do you primarily save in?</span></p>
+            <p class="text"><span class="green">One more thing, Sarah — which currency do you primarily save in?</span></p>
             <p class="text"><span class="green">1️⃣ 🇺🇸 US Dollar (USD)</span></p>
             <p class="text"><span class="green">2️⃣ 🇬🇧 British Pound (GBP)</span></p>
             <p class="text"><span class="green">3️⃣ 🇦🇪 UAE Dirham (AED)</span></p>
@@ -91,9 +93,15 @@
           </div>
           <p>Reply with a number (1–5) or a currency code such as <code>AED</code> or <code>GBP</code>.</p>
 
-          <h3>Step 3 - Secondary currency (optional)</h3>
-          <p>After setting your primary, <strong class="brand">thejarr</strong> offers one additional display currency. This appears alongside your primary in every progress update - for example: <em>AED 18,350.00 (£3,950.00)</em>.</p>
-          <p>Reply with a number or currency code (e.g. <code>2</code> or <code>GBP</code>), or <code>skip</code> to continue without one.</p>
+          <h3>Step 3 — Secondary currency (optional)</h3>
+          <p>After setting your primary, <strong class="brand">thejarr</strong> offers one additional display currency. Pick one from the list, or tap <strong>Skip</strong> to continue with just your primary. The secondary amount appears in brackets alongside your primary in all progress messages — for example: <em>AED 18,350.00 (£3,950.00)</em>.</p>
+
+          <div class="cmd-block">
+            <p class="prompt">thejarr →</p>
+            <p class="text"><span class="green">All set! ✅</span></p>
+            <p class="text"><span class="green">Your savings will be tracked in 🇦🇪 UAE Dirham (AED).</span></p>
+            <p class="text"><span class="green">Ready to create your first goal? Send 'create goal', or 'help' to see all commands.</span></p>
+          </div>
 
           <div class="callout">
             <p><strong>Setup only happens once.</strong> You won't be asked again unless you use <code>change currency</code> or <code>change name</code>.</p>
@@ -106,7 +114,7 @@
           <h2>Creating a goal</h2>
           <p>Trigger goal creation by sending any of: <code>create goal</code>, <code>hi</code>, <code>hello</code>, or <code>start</code>.</p>
 
-          <p>If your account has the WhatsApp Flow enabled, a native form pops up inside WhatsApp where you fill in the goal name, target amount, currency, and optional deadline - then tap submit.</p>
+          <p>If your account has the WhatsApp Flow enabled, a native form pops up inside WhatsApp where you fill in the goal name, target amount, currency, and optional deadline — then tap submit.</p>
 
           <p>If the Flow is not enabled, <strong class="brand">thejarr</strong> guides you through a text conversation:</p>
 
@@ -123,18 +131,20 @@
             <p class="prompt" style="margin-top:8px;">You →</p>
             <p class="text">AED 20000</p>
             <p class="prompt" style="margin-top:8px;">thejarr →</p>
-            <p class="text"><span class="green">Got it - AED 20,000.00. Do you have a deadline in mind?</span></p>
+            <p class="text"><span class="green">Got it — AED 20,000.00. Do you have a deadline in mind?</span></p>
             <p class="text"><span class="green">Send a date (e.g. 'December 2026') or reply <span class="amber">skip</span> to leave it open-ended.</span></p>
             <p class="prompt" style="margin-top:8px;">You →</p>
             <p class="text">December 2026</p>
             <p class="prompt" style="margin-top:8px;">thejarr →</p>
-            <p class="text"><span class="green">✅ <span class="amber">Holiday Fund</span> created!</span></p>
+            <p class="text"><span class="green">✅ Goal created!</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
             <p class="text"><span class="green">Target: AED 20,000.00 · Deadline: December 2026</span></p>
-            <p class="text"><span class="green">Ready to start saving? Send an amount like 'AED 500' to log your first deposit.</span></p>
+            <p class="text"><span class="green">Ready to log a deposit? Just send the amount (e.g. 'AED 500') anytime.</span></p>
+            <p class="text"><span class="green">💡 Tip: Want to save with a partner? Type 'invite partner' anytime.</span></p>
           </div>
 
           <div class="callout info">
-            <p><strong>Note:</strong> A goal's currency is set at creation and cannot be changed. You can deposit in any other currency - <strong class="brand">thejarr</strong> converts automatically. thejarr supports up to 3 active goals at once. Archive or complete a goal to free a slot.</p>
+            <p><strong>Note:</strong> A goal's currency is set at creation and cannot be changed. You can deposit in any other currency — <strong class="brand">thejarr</strong> converts automatically. Free plan users can have up to 3 active goals at once. Archive or complete a goal to free a slot.</p>
           </div>
         </div>
 
@@ -164,31 +174,32 @@
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">✅ AED 500.00 logged!</span></p>
             <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
-            <p class="text"><span class="green">Progress: AED 500.00 / AED 20,000.00 (2.5%)</span></p>
+            <p class="text"><span class="green">Progress: AED 500.00 (£108.00) / AED 20,000.00 (2.5%)</span></p>
             <p class="text"><span class="green">Remaining: AED 19,500.00</span></p>
           </div>
 
-          <h3>Multiple active goals</h3>
-          <p>If you have more than one active goal and no default is set, <strong class="brand">thejarr</strong> asks which goal to apply the deposit to:</p>
+          <h3>Multiple active goals — no default set</h3>
+          <p>If you have more than one active goal and no default is set, <strong class="brand">thejarr</strong> shows an interactive list to pick from:</p>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
             <p class="text"><span class="green">Which goal should I log AED 500.00 against?</span></p>
-            <p class="text"><span class="green">1. Holiday Fund</span></p>
-            <p class="text"><span class="green">2. New Car</span></p>
-            <p class="text"><span class="green">3. Emergency Fund</span></p>
-            <p class="text"><span class="green">Reply with a number, or prefix it next time (e.g. '1 AED 500').</span></p>
+            <p class="text"><span class="green">Tip: send 'set goal' to set a default.</span></p>
+            <p class="text"><span class="green muted">[list: Holiday Fund · New Car · ↩ Cancel]</span></p>
           </div>
-          <p>The context is remembered for 24 hours - your next deposit goes to the same goal automatically.</p>
+          <p>Tap a goal from the list to log the deposit. This is a <strong>one-time selection</strong> — it does not set a default for future deposits. To set a default, use <code>set goal</code> (see <a href="#multiple-goals">section 5</a>).</p>
 
           <h3>Inline goal selection</h3>
-          <p>Prefix any deposit with a goal number to target a specific goal and update your default at the same time:</p>
+          <p>Prefix any deposit with a goal number to skip the prompt and log directly to that goal:</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
             <p class="text">1 AED 1000</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">✅ AED 1,000.00 logged!</span></p>
-            <p class="text"><span class="green"><span class="amber">Holiday Fund</span> - future deposits default here.</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
+            <p class="text"><span class="green">Progress: AED 1,500.00 / AED 20,000.00 (7.5%)</span></p>
+            <p class="text"><span class="green">Remaining: AED 18,500.00</span></p>
           </div>
+          <p>This is also a one-time selection — it routes the deposit to goal 1 without changing your default. To make goal 1 your permanent default, use <code>set goal</code>.</p>
 
           <h3>Depositing in a different currency</h3>
           <p><strong class="brand">thejarr</strong> shows a conversion note when you deposit in a currency different from the goal's currency:</p>
@@ -198,12 +209,20 @@
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">✅ £200.00 logged!</span></p>
             <p class="text"><span class="green"><span class="muted">(£200.00 = AED 926.00)</span></span></p>
-            <p class="text"><span class="green">Holiday Fund</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
             <p class="text"><span class="green">Progress: AED 2,426.00 / AED 20,000.00 (12.1%)</span></p>
+            <p class="text"><span class="green">Remaining: AED 17,574.00</span></p>
           </div>
 
           <h3>Milestone messages</h3>
           <p>At 25%, 50%, 75%, and 100%, <strong class="brand">thejarr</strong> sends a personalised celebration alongside the progress update. Both partners receive the message on shared goals.</p>
+          <div class="cmd-block">
+            <p class="prompt">thejarr →</p>
+            <p class="text"><span class="green">✅ AED 2,000.00 logged!</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
+            <p class="text"><span class="green">🎉 25% milestone! Sarah, you're a quarter of the way there — great start!</span></p>
+            <p class="text"><span class="green">Progress: AED 5,000.00 / AED 20,000.00 (25.0%)</span></p>
+          </div>
         </div>
 
         <!-- ── 4. Tracking progress ───────────────────── -->
@@ -212,31 +231,35 @@
           <h2>Tracking progress</h2>
 
           <h3><code>status</code></h3>
-          <p>Shows the detailed progress of your most recently active goal, with your secondary currency and a visual progress bar. Exchange rates are refreshed at the time of this command.</p>
+          <p>Shows the detailed progress of your most recently active goal, with a visual progress bar. Exchange rates are refreshed at the time of this command.</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
             <p class="text">status</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
-            <p class="text"><span class="green">Target: AED 20,000.00 (£4,316.00 · $5,462.00)</span></p>
-            <p class="text"><span class="green">Progress: AED 5,000.00 (£1,079.00 · $1,365.00) (25.0%)</span></p>
-            <p class="text"><span class="green">Remaining: AED 15,000.00</span></p>
+            <p class="text"><span class="green">Saved AED 5,000.00 of AED 20,000.00</span></p>
+            <p class="text"><span class="green">AED 15,000.00 to go · due Dec 2026</span></p>
             <p class="text"><span class="green">[█████░░░░░] 25%</span></p>
-            <p class="text"><span class="green">Rates refreshed just now. 🔄</span></p>
           </div>
+          <p>If your goal currency differs from your primary and you have no secondary currency, a currency note is shown. Exchange rates are refreshed when you run <code>status</code> or <code>goals</code>.</p>
 
           <h3><code>goals</code></h3>
-          <p>Lists all active goals with a one-line summary each. The current default deposit target is marked with <code>← deposits go here</code>.</p>
+          <p>Lists all your active goals as an interactive list. Tap any goal to see its full detail view.</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
             <p class="text">goals</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
-            <p class="text"><span class="green">Your active goals:</span></p>
-            <p class="text"><span class="green">1️⃣ Holiday Fund - AED 5,000 / AED 20,000 (25%) <span class="amber">← deposits go here</span></span></p>
-            <p class="text"><span class="green">2️⃣ New Car - AED 500 / AED 50,000 (1%)</span></p>
-            <p class="text"><span class="green">3️⃣ Emergency Fund - AED 0 / AED 10,000 (0%)</span></p>
-            <p class="text"><span class="green">Rates refreshed just now. 🔄</span></p>
+            <p class="text"><span class="green muted">[interactive list]</span></p>
+            <p class="text"><span class="green">Holiday Fund ✦ — AED 5,000.00 / AED 20,000.00 (25%) · shared</span></p>
+            <p class="text"><span class="green">New Car — AED 500.00 / AED 50,000.00 (1%)</span></p>
+            <p class="text"><span class="green">Emergency Fund — AED 0.00 / AED 10,000.00 (0%)</span></p>
+            <p class="text"><span class="green">↩ Cancel</span></p>
           </div>
+          <ul>
+            <li><strong>✦</strong> marks your current default deposit goal</li>
+            <li><strong>· shared</strong> indicates a goal with an active partner</li>
+            <li>Tap a goal row to view its full detail (same format as <code>status</code>)</li>
+          </ul>
         </div>
 
         <!-- ── 5. Multiple goals ──────────────────────── -->
@@ -244,25 +267,29 @@
           <span class="eyebrow">05</span>
           <h2>Managing multiple goals</h2>
 
-          <h3>Switching your default deposit target</h3>
-          <p>Use <code>switch goal</code> to change which goal future deposits go to without making a deposit.</p>
+          <h3>Setting your default deposit target</h3>
+          <p>Use <code>set goal</code> (or <code>switch goal</code>) to choose which goal future deposits go to without making a deposit.</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
-            <p class="text">switch goal</p>
+            <p class="text">set goal</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
-            <p class="text"><span class="green">Which goal should deposits go to?</span></p>
-            <p class="text"><span class="green">1. Holiday Fund <span class="amber">← current</span></span></p>
-            <p class="text"><span class="green">2. New Car</span></p>
-            <p class="text"><span class="green">3. Emergency Fund</span></p>
+            <p class="text"><span class="green muted">[interactive list]</span></p>
+            <p class="text"><span class="green">Holiday Fund ✦ — AED 5,000.00 / AED 20,000.00 (25%)</span></p>
+            <p class="text"><span class="green">New Car — AED 500.00 / AED 50,000.00 (1%)</span></p>
+            <p class="text"><span class="green">Emergency Fund — AED 0.00 / AED 10,000.00 (0%)</span></p>
+            <p class="text"><span class="green">↩ Cancel</span></p>
             <p class="prompt" style="margin-top:8px;">You →</p>
-            <p class="text">3</p>
+            <p class="text">[taps Emergency Fund]</p>
             <p class="prompt" style="margin-top:8px;">thejarr →</p>
-            <p class="text"><span class="green">✅ Got it - deposits will now go to <span class="amber">Emergency Fund</span> by default.</span></p>
+            <p class="text"><span class="green">✅ Got it — deposits will now go to <span class="amber">Emergency Fund</span> by default.</span></p>
+            <p class="text"><span class="green">You can always use inline numbers (e.g. '2 $100') to log to a different goal without switching.</span></p>
           </div>
 
           <div class="callout info">
-            <p><strong>Tip:</strong> You can also skip the switch by prefixing any deposit with a goal number (e.g. <code>2 $100</code>). This logs to goal 2 and updates your default at the same time.</p>
+            <p><strong>Important:</strong> <code>set goal</code> (or <code>switch goal</code>) is the <strong>only</strong> way to set a persistent default. Picking from the goal selection list when prompted, or using an inline number prefix (<code>2 $100</code>), routes that single deposit to the chosen goal but does <strong>not</strong> change your default.</p>
           </div>
+
+          <p>If you only have one active goal, <code>set goal</code> simply confirms that goal is the target.</p>
         </div>
 
         <!-- ── 6. Undoing a deposit ───────────────────── -->
@@ -280,12 +307,13 @@
             <p class="text">yes</p>
             <p class="prompt" style="margin-top:8px;">thejarr →</p>
             <p class="text"><span class="green">✅ Deposit deleted.</span></p>
-            <p class="text"><span class="green">Holiday Fund - updated progress: AED 4,500.00 / AED 20,000.00 (22.5%)</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
+            <p class="text"><span class="green">Updated progress: AED 4,500.00 / AED 20,000.00 (22.5%)</span></p>
           </div>
 
           <ul>
             <li>Only your most recent non-deleted deposit can be undone.</li>
-            <li>Deposits older than 24 hours cannot be undone - <strong class="brand">thejarr</strong> will explain this.</li>
+            <li>Deposits older than 24 hours cannot be undone — <strong class="brand">thejarr</strong> will explain this.</li>
             <li>Partners are notified when a deposit is removed from a shared goal.</li>
             <li>Reply <code>no</code> to cancel without making any changes.</li>
           </ul>
@@ -305,28 +333,68 @@
             <p class="text"><span class="green">Here's your invite link for <span class="amber">Holiday Fund</span>:</span></p>
             <p class="text"><span class="green">https://wa.me/YOUR_NUMBER?text=join-abc123xyz</span></p>
             <p class="text"><span class="green">Share this with your partner. The link expires in 7 days and can only be used once.</span></p>
+            <p class="text"><span class="green">Once they accept, you'll both get updates on each other's deposits automatically.</span></p>
           </div>
-          <p>If you have multiple goals, <strong class="brand">thejarr</strong> asks which one to share first. Send the link via any WhatsApp chat - when your partner taps it, it opens WhatsApp and pre-fills the invite code.</p>
+          <p>If you have multiple goals, <strong class="brand">thejarr</strong> shows an interactive list to select which goal to share. Share the link via any WhatsApp chat — when your partner taps it on their phone, it opens WhatsApp and pre-fills the invite code.</p>
 
-          <h3>Accepting an invite</h3>
-          <p>When someone taps your invite link, <strong class="brand">thejarr</strong> greets them and collects their name and currency preferences if they're new to <strong class="brand">thejarr</strong>. Then it shows them the goal details:</p>
+          <p>After sending the invite, the bot asks whether you'd like deposit notifications from your partner:</p>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
-            <p class="text"><span class="green">You've been invited to collaborate on a savings goal:</span></p>
+            <p class="text"><span class="green">Would you like to receive a WhatsApp notification when your partner logs a deposit?</span></p>
+            <p class="text"><span class="green muted">[buttons: Yes, notify me · No thanks]</span></p>
+          </div>
+          <p>You can change this setting at any time with the <code>notifications</code> command.</p>
+
+          <h3>Accepting an invite</h3>
+          <p>When someone taps your invite link, <strong class="brand">thejarr</strong> greets them (and collects their name and currency preferences if they're new), then shows the goal details:</p>
+          <div class="cmd-block">
+            <p class="prompt">thejarr →</p>
+            <p class="text"><span class="green">Hi! You've been invited to collaborate on a savings goal:</span></p>
             <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
             <p class="text"><span class="green">Target: AED 20,000.00 · Progress so far: AED 5,000.00 (25.0%)</span></p>
             <p class="text"><span class="green">Reply <span class="amber">yes</span> to accept or <span class="amber">no</span> to decline.</span></p>
           </div>
-          <p>If accepted, both partners receive confirmation. If declined, the creator is notified and can invite someone else.</p>
+
+          <p><strong>Accepting:</strong></p>
+          <div class="cmd-block">
+            <p class="prompt">You (partner) →</p>
+            <p class="text">yes</p>
+            <p class="prompt" style="margin-top:12px;">thejarr → (to partner)</p>
+            <p class="text"><span class="green">You're in! ✅</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
+            <p class="text"><span class="green">You'll both get updates whenever either of you logs a deposit. Ready to save? Just send an amount like '$100'.</span></p>
+            <p class="prompt" style="margin-top:12px;">thejarr → (to goal creator)</p>
+            <p class="text"><span class="green"><span class="amber">Sarah</span> joined your <span class="amber">Holiday Fund</span> goal! 🎉</span></p>
+            <p class="text"><span class="green">You'll both receive updates on each other's deposits automatically.</span></p>
+          </div>
+
+          <p><strong>Declining:</strong></p>
+          <div class="cmd-block">
+            <p class="prompt">You (partner) →</p>
+            <p class="text">no</p>
+            <p class="prompt" style="margin-top:12px;">thejarr → (to partner)</p>
+            <p class="text"><span class="green">No problem! The invite link is now inactive.</span></p>
+            <p class="prompt" style="margin-top:12px;">thejarr → (to goal creator)</p>
+            <p class="text"><span class="green"><span class="amber">Sarah</span> declined your invite to <span class="amber">Holiday Fund</span>.</span></p>
+            <p class="text"><span class="green">You can continue solo or invite someone else anytime.</span></p>
+          </div>
 
           <h3>Deposit notifications on shared goals</h3>
-          <p>Every deposit triggers a notification to both people. The depositor sees their own confirmation; the partner receives a notification in their own currency:</p>
+          <p>Every deposit either partner logs triggers notifications to both people. The depositor sees their own confirmation; the partner receives a notification in their own currency:</p>
           <div class="cmd-block">
-            <p class="prompt">Partner receives →</p>
+            <p class="prompt">Depositor (Alex) sees →</p>
+            <p class="text"><span class="green">✅ AED 1,000.00 logged!</span></p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span></span></p>
+            <p class="text"><span class="green">Progress: AED 6,000.00 / AED 20,000.00 (30.0%)</span></p>
+            <p class="text"><span class="green">You: AED 4,000.00 (67%) · Sarah: AED 2,000.00 (33%)</span></p>
+          </div>
+          <div class="cmd-block">
+            <p class="prompt">Partner (Sarah) receives →</p>
             <p class="text"><span class="green"><span class="amber">Alex</span> just added AED 1,000.00 to <span class="amber">Holiday Fund</span>! 💰</span></p>
             <p class="text"><span class="green">Progress: AED 6,000.00 / AED 20,000.00 (30.0%)</span></p>
             <p class="text"><span class="green">Sarah: AED 2,000.00 (33%) · Alex: AED 4,000.00 (67%)</span></p>
           </div>
+          <p>Partner amounts are always shown in the <strong>partner's own currency preferences</strong> regardless of what currency the deposit was made in.</p>
 
           <h3>Leaving a shared goal</h3>
           <p>Partners (non-creators) can leave a goal at any time using <code>leave goal</code>. The goal creator must use <code>archive</code> or <code>delete</code> instead.</p>
@@ -335,13 +403,21 @@
             <p class="text">leave goal</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">Leave <span class="amber">Holiday Fund</span>?</span></p>
-            <p class="text"><span class="green">Your deposit history will remain and count toward the goal. Alex will be notified.</span></p>
-            <p class="text"><span class="green">Reply <span class="amber">yes</span> to leave or <span class="amber">no</span> to cancel.</span></p>
+            <p class="text"><span class="green">Your deposit history will remain and count toward the goal. Alex will be notified and can re-add you later.</span></p>
+            <p class="text"><span class="green muted">[buttons: Yes, leave · No, stay]</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">Yes, leave</p>
+            <p class="prompt" style="margin-top:8px;">thejarr → (to you)</p>
+            <p class="text"><span class="green">✅ You've left <span class="amber">Holiday Fund</span>.</span></p>
+            <p class="text"><span class="green">Your contributions are preserved. If you'd like to rejoin later, ask Alex to send a new invite.</span></p>
+            <p class="prompt" style="margin-top:12px;">thejarr → (to creator)</p>
+            <p class="text"><span class="green"><span class="amber">Sarah</span> has left <span class="amber">Holiday Fund</span>.</span></p>
+            <p class="text"><span class="green">Their contributions are preserved. You can re-add them anytime with 'invite partner'.</span></p>
           </div>
           <ul>
             <li>All past deposits remain in the database and still count toward the goal's total.</li>
-            <li>Departed partners no longer appear in the contribution breakdown.</li>
-            <li>If the creator re-invites you and you accept, your history carries over.</li>
+            <li>The contribution split display only shows currently active partners, so departed partners no longer appear in the breakdown.</li>
+            <li>If the creator re-invites you and you accept, your history carries over and you appear in the split again.</li>
           </ul>
         </div>
 
@@ -351,24 +427,32 @@
           <h2>Completing a goal</h2>
 
           <h3>Automatic completion</h3>
-          <p>When a deposit pushes a goal to 100%, it's automatically marked complete and both partners receive individual celebration messages.</p>
+          <p>When a deposit pushes a goal to 100%, it's automatically marked complete. On partnered goals, both partners receive individual celebration messages with the full contribution breakdown.</p>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
+            <p class="text"><span class="green">✅ AED 2,000.00 logged!</span></p>
             <p class="text"><span class="green">🎉🎉🎉 GOAL COMPLETED! 🎉🎉🎉</span></p>
             <p class="text"><span class="green"><span class="amber">Holiday Fund</span>: AED 20,000.00 / AED 20,000.00 (100%)</span></p>
+            <p class="text"><span class="green">Completed on: 1 March 2026</span></p>
             <p class="text"><span class="green">Congratulations, Sarah! You did it! 🚀</span></p>
             <p class="text"><span class="green">Ready to start a new goal? Send 'create goal' anytime.</span></p>
           </div>
 
           <h3>Manual completion</h3>
-          <p>Use <code>complete</code> to mark a goal as done even if it hasn't reached 100% - useful if you reached your target through other means or want to close the goal early.</p>
+          <p>Use <code>complete</code> to mark a goal as done even if it hasn't reached 100% — useful if you reached your target through other means or want to close the goal early.</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
             <p class="text">complete</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">Mark <span class="amber">Holiday Fund</span> as complete?</span></p>
             <p class="text"><span class="green">Final progress: AED 17,500.00 / AED 20,000.00 (87.5%)</span></p>
+            <p class="text"><span class="green"><span class="muted">(You're at 87.5% — marking complete before reaching the target.)</span></span></p>
             <p class="text"><span class="green">Reply <span class="amber">yes</span> to confirm or <span class="amber">no</span> to cancel.</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">yes</p>
+            <p class="prompt" style="margin-top:8px;">thejarr →</p>
+            <p class="text"><span class="green">🎉 <span class="amber">Holiday Fund</span> marked as complete!</span></p>
+            <p class="text"><span class="green">Well done — your deposit history is saved. Ready for your next goal? Send 'create goal'.</span></p>
           </div>
           <p>Partners are notified when a goal is marked complete. If you have multiple active goals, <strong class="brand">thejarr</strong> lists them and asks which one to complete.</p>
         </div>
@@ -377,7 +461,7 @@
         <div class="manual-section" id="archive">
           <span class="eyebrow">09</span>
           <h2>Archiving a goal</h2>
-          <p>Archiving soft-closes a goal. The goal becomes inactive (no more deposits), but all deposit history is preserved and visible in <code>history</code>. Archiving also frees up a slot on thejarr</p>
+          <p>Archiving soft-closes a goal. The goal becomes inactive (no more deposits), but all deposit history is preserved and visible in <code>history</code>. Archiving also frees up a slot if you're on the free plan.</p>
           <p>Only the goal creator can archive. Partners are redirected to <code>leave goal</code>.</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
@@ -385,11 +469,19 @@
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">Archive <span class="amber">Holiday Fund</span>?</span></p>
             <p class="text"><span class="green">Progress: AED 5,000.00 / AED 20,000.00 (25.0%)</span></p>
-            <p class="text"><span class="green">Archiving stops tracking but keeps your deposit history.</span></p>
+            <p class="text"><span class="green">Archiving stops tracking but keeps your deposit history. This frees up a goal slot if you're on thejarr.</span></p>
             <p class="text"><span class="green">⚠️ Your partner will be notified.</span></p>
-            <p class="text"><span class="green">Reply <span class="amber">yes</span> to archive or <span class="amber">no</span> to cancel.</span></p>
+            <p class="text"><span class="green muted">[buttons: Yes, archive · No, cancel]</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">Yes, archive</p>
+            <p class="prompt" style="margin-top:8px;">thejarr → (to you)</p>
+            <p class="text"><span class="green">✅ <span class="amber">Holiday Fund</span> has been archived.</span></p>
+            <p class="text"><span class="green">You can view it anytime with 'history'. Ready to create a new goal? Send 'create goal'.</span></p>
+            <p class="prompt" style="margin-top:12px;">thejarr → (to partner)</p>
+            <p class="text"><span class="green"><span class="amber">Holiday Fund</span> has been archived by your partner.</span></p>
+            <p class="text"><span class="green">The goal is no longer active, but your deposit history is preserved.</span></p>
           </div>
-          <p>Partners receive a notification that the goal has been archived and is no longer active. If you have multiple goals, <strong class="brand">thejarr</strong> asks which one to archive.</p>
+          <p>If you have multiple goals, <strong class="brand">thejarr</strong> shows an interactive list of your created goals. Tap a goal to select it, then confirm. Tap <strong>↩ Cancel</strong> to exit without changes.</p>
         </div>
 
         <!-- ── 10. Deleting a goal ────────────────────── -->
@@ -403,16 +495,24 @@
             <p class="text">delete</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">⚠️ Delete <span class="amber">Holiday Fund</span> permanently?</span></p>
-            <p class="text"><span class="green">This will remove: the goal, all deposit history, and any partner connections.</span></p>
+            <p class="text"><span class="green">This will remove: the goal (AED 5,000.00 / AED 20,000.00), all deposit history, any partner connections.</span></p>
             <p class="text"><span class="green">⚠️ Your partner will be notified before the goal is deleted.</span></p>
-            <p class="text"><span class="green">This cannot be undone. Reply <span class="amber">yes</span> to delete or <span class="amber">no</span> to cancel.</span></p>
+            <p class="text"><span class="green">This cannot be undone.</span></p>
+            <p class="text"><span class="green muted">[buttons: Yes, delete · No, cancel]</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">Yes, delete</p>
+            <p class="prompt" style="margin-top:8px;">thejarr → (to partner, sent first)</p>
+            <p class="text"><span class="green">⚠️ <span class="amber">Holiday Fund</span> has been deleted by your partner.</span></p>
+            <p class="text"><span class="green">The goal and all deposit history have been permanently removed.</span></p>
+            <p class="prompt" style="margin-top:8px;">thejarr → (to you)</p>
+            <p class="text"><span class="green">✅ <span class="amber">Holiday Fund</span> and all its history have been permanently deleted.</span></p>
           </div>
 
           <div class="callout">
             <p><strong>Partner notification is sent first.</strong> <strong class="brand">thejarr</strong> notifies any partner before deleting the goal, so they're aware before the data is gone.</p>
           </div>
 
-          <p>If you have multiple goals, <strong class="brand">thejarr</strong> lists all of them - including completed and archived ones (tagged <code>[completed]</code> or <code>[archived]</code>) - and asks which to delete.</p>
+          <p>If you have multiple goals, <strong class="brand">thejarr</strong> shows an interactive list of <strong>all</strong> your goals — including completed and archived ones, tagged <code>[completed]</code> or <code>[archived]</code>. Tap a goal to select it, then confirm.</p>
         </div>
 
         <!-- ── 11. Goal history ───────────────────────── -->
@@ -426,9 +526,11 @@
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">Your goal history:</span></p>
             <p class="text"><span class="green">✅ <span class="amber">Holiday Fund</span></span></p>
-            <p class="text"><span class="green">   AED 20,000 / AED 20,000 (100%) [completed]</span></p>
+            <p class="text"><span class="green">   AED 20,000.00 / AED 20,000.00 (100%) [completed]</span></p>
             <p class="text"><span class="green">📦 <span class="amber">Emergency Buffer</span></span></p>
-            <p class="text"><span class="green">   AED 3,200 / AED 5,000 (64%) [archived]</span></p>
+            <p class="text"><span class="green">   AED 3,200.00 / AED 5,000.00 (64%) [archived]</span></p>
+            <p class="text"><span class="green">✅ <span class="amber">New Laptop</span></span></p>
+            <p class="text"><span class="green">   AED 4,500.00 / AED 4,500.00 (100%) [completed]</span></p>
           </div>
           <ul>
             <li>✅ = completed goal</li>
@@ -449,7 +551,7 @@
             <p class="text">change name</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">What would you like to be called (currently <span class="amber">Sarah</span>)?</span></p>
-            <p class="text"><span class="green">Send your new name or reply <span class="amber">cancel</span> to keep things as they are.</span></p>
+            <p class="text"><span class="green">Send your new name or nickname, or reply <span class="amber">cancel</span> to keep things as they are.</span></p>
             <p class="prompt" style="margin-top:8px;">You →</p>
             <p class="text">Saz</p>
             <p class="prompt" style="margin-top:8px;">thejarr →</p>
@@ -464,60 +566,129 @@
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">Current settings: primary <span class="amber">AED</span>, secondary: GBP</span></p>
             <p class="text"><span class="green">Which currency would you like as your new primary?</span></p>
+            <p class="text"><span class="green">1️⃣ 🇺🇸 US Dollar (USD)</span></p>
+            <p class="text"><span class="green">2️⃣ 🇬🇧 British Pound (GBP)</span></p>
+            <p class="text"><span class="green">3️⃣ 🇦🇪 UAE Dirham (AED)</span></p>
+            <p class="text"><span class="green">4️⃣ 🇮🇳 Indian Rupee (INR)</span></p>
+            <p class="text"><span class="green">5️⃣ 🇪🇺 Euro (EUR)</span></p>
+            <p class="text"><span class="green">Reply with a number or code, or <span class="amber">cancel</span> to keep your current settings.</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">2</p>
+            <p class="prompt" style="margin-top:8px;">thejarr →</p>
+            <p class="text"><span class="green">Primary updated to <span class="amber">GBP</span>. ✅</span></p>
+            <p class="text"><span class="green">Update your secondary currency?</span></p>
+            <p class="text"><span class="green muted">[list: 🇺🇸 US Dollar · 🇦🇪 UAE Dirham · 🇮🇳 Indian Rupee · 🇪🇺 Euro · Keep existing · Remove secondary]</span></p>
           </div>
-          <p>After updating the primary, <strong class="brand">thejarr</strong> asks about your secondary. Reply options are:</p>
+          <p>Options:</p>
           <ul>
-            <li><code>2</code> or <code>GBP</code> - sets a specific currency as your secondary</li>
-            <li><code>skip</code> / <code>keep</code> / <code>same</code> - keeps existing secondary</li>
-            <li><code>clear</code> / <code>none</code> / <code>0</code> - removes the secondary</li>
+            <li>Tap a currency — sets it as your secondary</li>
+            <li><strong>Keep existing</strong> / reply <code>skip</code> / <code>keep</code> / <code>same</code> — keeps your current secondary</li>
+            <li><strong>Remove secondary</strong> / reply <code>clear</code> / <code>none</code> / <code>0</code> — removes the secondary entirely</li>
           </ul>
           <div class="callout info">
             <p><strong>Note:</strong> Changing currency preferences does not affect any existing goal amounts or deposit records. All historical amounts are reconverted at read time using the latest exchange rates.</p>
           </div>
         </div>
 
-        <!-- ── 13. Help & cancelling ─────────────────── -->
-        <div class="manual-section" id="help">
+        <!-- ── 13. Notifications ──────────────────────── -->
+        <div class="manual-section" id="notifications">
           <span class="eyebrow">13</span>
+          <h2>Notifications</h2>
+
+          <h3>Partner deposit notifications</h3>
+          <p>After inviting a partner to a goal, <strong class="brand">thejarr</strong> asks whether you want to be notified when they log a deposit:</p>
+          <div class="cmd-block">
+            <p class="prompt">thejarr →</p>
+            <p class="text"><span class="green">Would you like to receive a WhatsApp notification when your partner logs a deposit?</span></p>
+            <p class="text"><span class="green muted">[buttons: Yes, notify me · No thanks]</span></p>
+          </div>
+          <p>You can change this setting at any time using the <code>notifications</code> command.</p>
+
+          <h3>Notification settings</h3>
+          <p>Send <code>notifications</code> to see and toggle your current settings:</p>
+          <div class="cmd-block">
+            <p class="prompt">You →</p>
+            <p class="text">notifications</p>
+            <p class="prompt" style="margin-top:12px;">thejarr →</p>
+            <p class="text"><span class="green">Notification settings 🔔</span></p>
+            <p class="text"><span class="green">Reply with a number to toggle:</span></p>
+            <p class="text"><span class="green">1️⃣  Partner deposits — ON</span></p>
+            <p class="text"><span class="green">2️⃣  Weekly summary — ON</span></p>
+            <p class="text"><span class="green">Send <span class="amber">exit</span> to cancel.</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">2</p>
+            <p class="prompt" style="margin-top:8px;">thejarr →</p>
+            <p class="text"><span class="green">Weekly summary turned off. ✅</span></p>
+          </div>
+          <p>Reply <code>1</code> to toggle partner deposit notifications on or off. Reply <code>2</code> to toggle the weekly savings digest (thejarr+ users only).</p>
+
+          <h3>Weekly savings digest (thejarr+ only)</h3>
+          <p>Every <strong>Monday at 8:00 AM UTC</strong>, thejarr+ subscribers receive an image showing all active goals, progress, and a combined total — all in your primary currency.</p>
+          <ul>
+            <li>Enabled by default for all thejarr+ users.</li>
+            <li>Opt out at any time by sending <code>notifications</code> and toggling option 2️⃣.</li>
+            <li>The digest image uses the same format as the on-demand <code>summary</code> command.</li>
+          </ul>
+        </div>
+
+        <!-- ── 14. Help & cancelling ─────────────────── -->
+        <div class="manual-section" id="help">
+          <span class="eyebrow">14</span>
           <h2>Help &amp; cancelling</h2>
 
           <h3>Getting help</h3>
           <p>Send <code>help</code> at any time to see the full command list in chat.</p>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
-            <p class="text"><span class="green">Here's what I can do:</span></p>
-            <p class="text"><span class="green">💰 '$50' - log a deposit</span></p>
-            <p class="text"><span class="green">📊 'status' - check progress</span></p>
-            <p class="text"><span class="green">🎯 'goals' - see all goals</span></p>
-            <p class="text"><span class="green">➕ 'create goal' - start a new goal</span></p>
-            <p class="text"><span class="green">👫 'invite partner' - share a goal</span></p>
-            <p class="text"><span class="green">🔙 'undo' - remove last deposit</span></p>
-            <p class="text"><span class="green">✏️ 'change name' - update what I call you</span></p>
-            <p class="text"><span class="green">💱 'change currency' - update currency preferences</span></p>
-            <p class="text"><span class="green">🔀 'switch goal' - change which goal deposits go to</span></p>
-            <p class="text"><span class="green">📦 'archive' - soft-close a goal</span></p>
-            <p class="text"><span class="green">🚶 'leave goal' - remove yourself from a shared goal</span></p>
-            <p class="text"><span class="green">✅ 'complete' - manually mark a goal as done</span></p>
-            <p class="text"><span class="green">🗑️ 'delete' - permanently delete a goal</span></p>
-            <p class="text"><span class="green">📜 'history' - view completed and archived goals</span></p>
-            <p class="text"><span class="green">💳 'upgrade' - unlock unlimited goals</span></p>
-            <p class="text"><span class="green">🚪 'exit' - cancel current action</span></p>
+            <p class="text"><span class="green">Here's what I can do, Sarah:</span></p>
+            <p class="text"><span class="green"><strong>Saving</strong></span></p>
+            <p class="text"><span class="green">💰 '$50' — log a deposit</span></p>
+            <p class="text"><span class="green">📊 'status' — check your latest goal</span></p>
+            <p class="text"><span class="green">🎯 'goals' — see all active goals</span></p>
+            <p class="text"><span class="green">🖼️ 'summary' — savings snapshot image</span></p>
+            <p class="text"><span class="green">🔙 'undo' — remove last deposit</span></p>
+            <p class="text"><span class="green"><strong>Goals</strong></span></p>
+            <p class="text"><span class="green">➕ 'create goal' — start a new goal</span></p>
+            <p class="text"><span class="green">🔀 'set goal' — set a default goal for deposits</span></p>
+            <p class="text"><span class="green">📦 'archive' — pause a goal</span></p>
+            <p class="text"><span class="green">🗑️ 'delete' — permanently delete a goal</span></p>
+            <p class="text"><span class="green">📜 'history' — completed and archived goals</span></p>
+            <p class="text"><span class="green"><strong>Partners</strong></span></p>
+            <p class="text"><span class="green">👫 'invite partner' — share a goal with someone</span></p>
+            <p class="text"><span class="green">🚶 'leave goal' — leave a shared goal</span></p>
+            <p class="text"><span class="green">🔔 'notifications' — notification settings</span></p>
+            <p class="text"><span class="green"><strong>Account</strong></span></p>
+            <p class="text"><span class="green">💱 'change currency' — update currency preferences</span></p>
+            <p class="text"><span class="green">✏️ 'change name' — update your name</span></p>
+            <p class="text"><span class="green">💳 'upgrade' — unlock unlimited goals</span></p>
+            <p class="text"><span class="green">📈 'lid' — live savings dashboard</span></p>
+            <p class="text"><span class="green">🔐 'change pin' — update your lid PIN</span></p>
+            <p class="text"><span class="green">💬 'feedback' — send a suggestion or bug report</span></p>
+            <p class="text"><span class="green">🚪 'exit' — cancel any action</span></p>
+            <p class="text"><span class="green">🌐 thejarr.co</span></p>
           </div>
 
           <h3>Cancelling an action</h3>
-          <p>At any point during a multi-step flow - goal creation, archive confirmation, invite response, etc. - send <code>exit</code> or <code>cancel</code> to abandon the current action and return to idle.</p>
+          <p>At any point during a multi-step flow — goal creation, archive confirmation, invite response, etc. — send <code>exit</code> or <code>cancel</code> to abandon the current action and return to idle.</p>
           <div class="cmd-block">
             <p class="prompt">You →</p>
             <p class="text">exit</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
             <p class="text"><span class="green">No problem, I've cancelled that. Send 'help' to see what you can do.</span></p>
           </div>
-          <p>If nothing is currently in progress, <strong class="brand">thejarr</strong> confirms there's nothing to cancel.</p>
+          <p>If nothing is currently in progress:</p>
+          <div class="cmd-block">
+            <p class="prompt">thejarr →</p>
+            <p class="text"><span class="green">Nothing in progress to cancel. Send 'help' to see available commands.</span></p>
+          </div>
+
+          <h3>The Cancel row in goal lists</h3>
+          <p>All interactive goal selection lists include a <strong>↩ Cancel</strong> row at the bottom. Tapping it exits without selecting a goal or making any changes.</p>
         </div>
 
-        <!-- ── 14. Currencies & formats ──────────────── -->
+        <!-- ── 15. Currencies & formats ──────────────── -->
         <div class="manual-section" id="currencies">
-          <span class="eyebrow">14</span>
+          <span class="eyebrow">15</span>
           <h2>Currencies &amp; formats</h2>
 
           <h3>Supported currencies</h3>
@@ -526,7 +697,7 @@
             <tbody>
               <tr><td><code>USD</code></td><td>$</td><td>US Dollar</td></tr>
               <tr><td><code>GBP</code></td><td>£</td><td>British Pound</td></tr>
-              <tr><td><code>AED</code></td><td>-</td><td>UAE Dirham</td></tr>
+              <tr><td><code>AED</code></td><td>—</td><td>UAE Dirham</td></tr>
               <tr><td><code>INR</code></td><td>₹</td><td>Indian Rupee</td></tr>
               <tr><td><code>EUR</code></td><td>€</td><td>Euro</td></tr>
             </tbody>
@@ -541,19 +712,18 @@
               <tr><td><code>AED 500</code> / <code>500 AED</code></td><td>AED</td></tr>
               <tr><td><code>500 gbp</code></td><td>GBP (codes are case-insensitive)</td></tr>
               <tr><td><code>$1,500</code></td><td>USD 1500 (commas ignored)</td></tr>
-              <tr><td><code>1 $500</code></td><td>$500 deposited to goal 1</td></tr>
-              <tr><td><code>2 500</code></td><td>500 (primary currency) deposited to goal 2</td></tr>
+              <tr><td><code>1 $500</code></td><td>$500 to goal 1 (one-time — doesn't set default)</td></tr>
+              <tr><td><code>2 500</code></td><td>500 (primary) to goal 2 (one-time — doesn't set default)</td></tr>
             </tbody>
           </table>
 
           <h3>Exchange rates</h3>
-          <p>Rates are sourced from the ExchangeRate-API. They are cached and refreshed automatically when you run <code>status</code> or <code>goals</code>.</p>
-          <p>All historical deposits are converted at the current cached rate - not the rate at the time of deposit. There is no markup applied.</p>
+          <p>Rates are sourced from ExchangeRate-API and cached automatically. They are refreshed when you run <code>status</code> or <code>goals</code>. All historical deposits are converted at the current cached rate — not the rate at the time of deposit. There is no markup applied.</p>
         </div>
 
-        <!-- ── 15. Plans & limits ────────────────────── -->
+        <!-- ── 16. Plans & limits ────────────────────── -->
         <div class="manual-section" id="limits">
-          <span class="eyebrow">15</span>
+          <span class="eyebrow">16</span>
           <h2>thejarr vs thejarr+</h2>
 
           <table class="ref-table" style="margin-bottom: 24px;">
@@ -562,61 +732,133 @@
               <tr><td>Active goals</td><td>3</td><td>Unlimited</td></tr>
               <tr><td>Deposits</td><td>Unlimited</td><td>Unlimited</td></tr>
               <tr><td>Partner collaboration</td><td>✓</td><td>✓</td></tr>
-              <tr><td>Shared goals</td><td>1 goal</td><td>Unlimited</td></tr>
               <tr><td>Multi-currency display</td><td>✓</td><td>✓</td></tr>
               <tr><td>Undo (24h window)</td><td>✓</td><td>✓</td></tr>
-              <tr><td>thelid (live dashboard)</td><td>-</td><td>✓</td></tr>
-              <tr><td>Weekly summary</td><td>-</td><td>coming soon</td></tr>
-              <tr><td>Milestone sharing</td><td>-</td><td>coming soon</td></tr>
+              <tr><td>Summary image</td><td>—</td><td>✓</td></tr>
+              <tr><td>Weekly savings digest</td><td>—</td><td>✓</td></tr>
+              <tr><td>thelid (live dashboard)</td><td>—</td><td>✓</td></tr>
             </tbody>
           </table>
 
           <p>To free up a slot on thejarr, <code>archive</code> or <code>complete</code> one of your active goals. Send <code>upgrade</code> in WhatsApp to upgrade to thejarr+.</p>
         </div>
 
-        <!-- ── 16. thelid ─────────────────────────── -->
-        <div class="manual-section" id="thelid">
-          <span class="eyebrow">16 · thejarr+</span>
-          <h2>thelid</h2>
-          <p>thelid is a live web dashboard available to thejarr+ members. Send <code>lid</code> or <code>dashboard</code> in WhatsApp to receive a secure personal link - valid for one hour. Open it on any device, no login required.</p>
+        <!-- ── 17. Upgrading ──────────────────────────── -->
+        <div class="manual-section" id="upgrade">
+          <span class="eyebrow">17 · thejarr+</span>
+          <h2>Upgrading to thejarr+</h2>
+          <p>Send <code>upgrade</code> at any time.</p>
 
+          <h3>During beta (waitlist mode)</h3>
           <div class="cmd-block">
             <p class="prompt">You →</p>
-            <p class="text">pulse</p>
+            <p class="text">upgrade</p>
             <p class="prompt" style="margin-top:12px;">thejarr →</p>
-            <p class="text"><span class="green">Here's your thelid dashboard link - tap to open:</span></p>
-            <p class="text"><span class="green">https://thelid.thejarr.co/abc123xyz</span></p>
-            <p class="text"><span class="green">Valid for 1 hour. Send <span class="amber">lid</span> again any time for a fresh link.</span></p>
+            <p class="text"><span class="green">thejarr+ is coming soon 🚀</span></p>
+            <p class="text"><span class="green">✅ Unlimited active goals</span></p>
+            <p class="text"><span class="green">✅ Summary image (all goals at a glance)</span></p>
+            <p class="text"><span class="green">✅ thelid — your live savings dashboard</span></p>
+            <p class="text"><span class="green">✅ Partner collaboration</span></p>
+            <p class="text"><span class="green">We're currently in beta. Reply <span class="amber">yes</span> to join the waitlist and we'll let you know the moment it's available.</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">yes</p>
+            <p class="prompt" style="margin-top:8px;">thejarr →</p>
+            <p class="text"><span class="green">You're on the list! 🎉</span></p>
+            <p class="text"><span class="green">We'll message you here on WhatsApp as soon as thejarr+ opens up.</span></p>
+          </div>
+          <p>You'll receive a WhatsApp message with your personal payment link when subscriptions open.</p>
+
+          <h3>When subscriptions are open</h3>
+          <div class="cmd-block">
+            <p class="prompt">You →</p>
+            <p class="text">upgrade</p>
+            <p class="prompt" style="margin-top:12px;">thejarr →</p>
+            <p class="text"><span class="green">thejarr+ — $4.99/month</span></p>
+            <p class="text"><span class="green">✅ Unlimited active goals</span></p>
+            <p class="text"><span class="green">✅ Summary image (all goals at a glance)</span></p>
+            <p class="text"><span class="green">✅ thelid — your live savings dashboard</span></p>
+            <p class="text"><span class="green">✅ Weekly savings digest</span></p>
+            <p class="text"><span class="green">✅ Cancel anytime</span></p>
+            <p class="text"><span class="green">Ready to upgrade? Reply <span class="amber">yes</span> to get your payment link, or <span class="amber">no</span> to cancel.</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">yes</p>
+            <p class="prompt" style="margin-top:8px;">thejarr →</p>
+            <p class="text"><span class="green">Your payment link (valid for 1 hour):</span></p>
+            <p class="text"><span class="green">https://thejarr.co/go/a1b2c3d4</span></p>
+            <p class="text"><span class="green">Complete payment in your browser — your account upgrades instantly.</span></p>
+          </div>
+          <p>Payment is processed via Stripe. Your account upgrades automatically within seconds of payment confirmation. You can cancel at any time through Stripe's customer portal.</p>
+        </div>
+
+        <!-- ── 18. thelid ─────────────────────────── -->
+        <div class="manual-section" id="thelid">
+          <span class="eyebrow">18 · thejarr+</span>
+          <h2>thelid</h2>
+          <p>thelid is a live web dashboard showing all your active goals, progress, burndown charts, and top partner. It's a <strong>thejarr+</strong> feature.</p>
+
+          <p>Send <code>pulse</code> or <code>lid</code> in WhatsApp to receive a secure personal link:</p>
+
+          <h3>First time (PIN setup)</h3>
+          <div class="cmd-block">
+            <p class="prompt">You →</p>
+            <p class="text">lid</p>
+            <p class="prompt" style="margin-top:12px;">thejarr →</p>
+            <p class="text"><span class="green">Your thelid is ready 📊</span></p>
+            <p class="text"><span class="green">🔗 https://thejarr.co/go/abc12345</span></p>
+            <p class="text"><span class="green">🔐 PIN: <span class="amber">4829</span></span></p>
+            <p class="text"><span class="green">You'll need this PIN every time you open the page. The link refreshes automatically.</span></p>
+            <p class="text"><span class="green">Send <span class="amber">change pin</span> to set your own PIN.</span></p>
           </div>
 
-          <h3>Overview page</h3>
+          <p>The link is a short URL that routes to your personal dashboard. You'll be prompted for your PIN when you open it.</p>
+
+          <h3>Returning users (PIN already set)</h3>
+          <div class="cmd-block">
+            <p class="prompt">You →</p>
+            <p class="text">lid</p>
+            <p class="prompt" style="margin-top:12px;">thejarr →</p>
+            <p class="text"><span class="green">Your thelid is ready 📊</span></p>
+            <p class="text"><span class="green">🔗 https://thejarr.co/go/abc12345</span></p>
+            <p class="text"><span class="green">Use your existing PIN to unlock. Forgotten it? Send <span class="amber">change pin</span> to reset it.</span></p>
+          </div>
+          <p>Each time you send <code>pulse</code> or <code>lid</code>, a fresh short link is generated and the previous one is automatically invalidated.</p>
+
+          <h3>Changing your thelid PIN</h3>
+          <div class="cmd-block">
+            <p class="prompt">You →</p>
+            <p class="text">change pin</p>
+            <p class="prompt" style="margin-top:12px;">thejarr →</p>
+            <p class="text"><span class="green">Enter your new 4-digit PIN for the thelid.</span></p>
+            <p class="text"><span class="green">Reply with 4 digits (e.g. '7291'), or <span class="amber">cancel</span> to keep your current PIN.</span></p>
+            <p class="prompt" style="margin-top:8px;">You →</p>
+            <p class="text">5923</p>
+            <p class="prompt" style="margin-top:8px;">thejarr →</p>
+            <p class="text"><span class="green">Done! Your new thelid PIN is set. ✅</span></p>
+            <p class="text"><span class="green">Use it next time you open your dashboard.</span></p>
+          </div>
+
+          <h3>Dashboard overview</h3>
           <ul>
-            <li><strong>Victory Hall</strong> - lifetime savings totals: amount saved all-time, goals completed, and total deposits made</li>
-            <li><strong>Top Partner</strong> - highlights the person you've saved the most with, showing combined savings and live progress on every shared goal</li>
-            <li><strong>Goal cards</strong> - all active and completed goals sorted by deadline, each with a progress bar, amount saved, and percentage reached (shown even above 100%)</li>
+            <li><strong>Victory Hall</strong> — lifetime savings totals: amount saved all-time, goals completed, and total deposits made</li>
+            <li><strong>Top Partner</strong> — highlights the person you've saved the most with, showing combined savings and live progress on every shared goal</li>
+            <li><strong>Goal cards</strong> — all active and completed goals sorted by deadline, each with a progress bar, amount saved, and percentage reached</li>
           </ul>
 
           <h3>Goal detail page</h3>
           <p>Tap any goal card to see the full detail view:</p>
           <ul>
-            <li><strong>Progress card</strong> - currency breakdown table showing saved, target, and remaining in your primary and secondary currency</li>
-            <li><strong>Burn-down chart</strong> - a line chart of how your remaining balance has decreased over time, with:
-              <ul>
-                <li>A dashed ideal line from start to deadline so you can see if you're ahead or behind</li>
-                <li>A "Today" marker when viewing before the deadline</li>
-                <li>A pace badge: 🔥 Crushing it / ✓ On track / Slightly behind / ⚠ Behind pace</li>
-              </ul>
-            </li>
-            <li><strong>Monthly needed</strong> - exactly how much needs to be deposited per month to hit the target by the deadline, shown in all your currencies</li>
-            <li><strong>Contributions</strong> - a stacked split bar showing each person's share visually, plus a ranked leaderboard (🥇🥈🥉) with name, amount, and percentage</li>
-            <li><strong>Deposits list</strong> - every deposit in chronological order with depositor name, timestamp, and amount (with currency conversion shown where applicable)</li>
+            <li><strong>Progress card</strong> — currency breakdown table showing saved, target, and remaining in your primary and secondary currency</li>
+            <li><strong>Burn-down chart</strong> — a line chart of how your remaining balance has decreased over time, with a dashed ideal line from start to deadline, a "Today" marker, and a pace badge (🔥 Crushing it / ✓ On track / Slightly behind / ⚠ Behind pace)</li>
+            <li><strong>Monthly needed</strong> — exactly how much needs to be deposited per month to hit the target by the deadline, in all your currencies</li>
+            <li><strong>Contributions</strong> — a stacked split bar showing each person's share visually, plus a ranked leaderboard (🥇🥈🥉) with name, amount, and percentage</li>
+            <li><strong>Deposits list</strong> — every deposit in chronological order with depositor name, timestamp, and amount</li>
           </ul>
 
-          <h3>Link security</h3>
+          <h3>Session security</h3>
           <ul>
-            <li>Each thelid link is unique, short, and expires after <strong>1 hour</strong></li>
-            <li>Sending <code>lid</code> again immediately invalidates the previous link</li>
-            <li>A <strong>Hold to destroy link</strong> button on the dashboard lets you manually expire the link at any time</li>
+            <li>Each thelid link is unique, short, and tied to your PIN</li>
+            <li>Sending <code>lid</code> or <code>pulse</code> again immediately invalidates the previous link</li>
+            <li>A <strong>Hold to Shatter Session</strong> button on the dashboard lets you manually expire the link at any time — useful if you shared a device or sent the link somewhere by mistake</li>
           </ul>
 
           <div class="callout info">
@@ -624,35 +866,37 @@
           </div>
         </div>
 
-        <!-- ── 17. Quick reference ────────────────────── -->
+        <!-- ── 19. Quick reference ────────────────────── -->
         <div class="manual-section" id="reference">
-          <span class="eyebrow">17</span>
+          <span class="eyebrow">19</span>
           <h2>Quick reference</h2>
 
           <table class="ref-table">
             <thead><tr><th>You send</th><th>What happens</th></tr></thead>
             <tbody>
-              <tr><td><code>hi</code> / <code>hello</code> / <code>start</code></td><td>Start thejarr and create your first goal</td></tr>
-              <tr><td><code>help</code></td><td>Show all commands in chat</td></tr>
-              <tr><td><code>500</code> / <code>$200</code> / <code>£100</code> / <code>AED 500</code></td><td>Log a deposit to your current goal</td></tr>
-              <tr><td><code>2 $300</code></td><td>Log $300 to goal 2 without switching</td></tr>
+              <tr><td><code>create goal</code> / <code>hi</code> / <code>start</code></td><td>Begin goal creation</td></tr>
+              <tr><td><code>500</code> / <code>$200</code> / <code>£100</code> / <code>AED 500</code></td><td>Log a deposit to your current default goal</td></tr>
+              <tr><td><code>2 $500</code></td><td>Log $500 to goal 2 (one-time — doesn't set default)</td></tr>
+              <tr><td><code>status</code></td><td>Detailed progress of most recent goal</td></tr>
+              <tr><td><code>goals</code></td><td>Interactive list of all active goals (tap to view detail)</td></tr>
+              <tr><td><code>set goal</code> / <code>switch goal</code></td><td>Set which goal deposits default to</td></tr>
+              <tr><td><code>summary</code></td><td>Savings snapshot image (thejarr+ only)</td></tr>
               <tr><td><code>undo</code></td><td>Remove your last deposit (within 24h)</td></tr>
-              <tr><td><code>goals</code> / <code>list</code></td><td>All active goals listed with progress bars</td></tr>
-              <tr><td><code>status</code> / <code>progress</code> / <code>check</code></td><td>Detailed progress of most recent goal (rates refreshed)</td></tr>
-              <tr><td><code>summary</code> / <code>overview</code></td><td>Full summary table with all currencies</td></tr>
-              <tr><td><code>switch goal</code> / <code>switch</code></td><td>Change which goal deposits default to</td></tr>
-              <tr><td><code>archive</code> / <code>pause</code></td><td>Soft-close a goal you created</td></tr>
+              <tr><td><code>archive</code></td><td>Soft-close a goal you created</td></tr>
               <tr><td><code>complete</code></td><td>Mark a goal as done manually</td></tr>
               <tr><td><code>delete</code></td><td>Permanently delete a goal you created</td></tr>
-              <tr><td><code>history</code> / <code>past goals</code></td><td>View completed and archived goals</td></tr>
-              <tr><td><code>invite</code> / <code>invite partner</code></td><td>Get a shareable invite link for a goal</td></tr>
-              <tr><td><code>leave</code> / <code>leave goal</code></td><td>Remove yourself from a goal you're partnered on</td></tr>
+              <tr><td><code>history</code></td><td>View completed and archived goals</td></tr>
+              <tr><td><code>invite partner</code></td><td>Get a shareable invite link for a goal</td></tr>
+              <tr><td><code>leave goal</code></td><td>Remove yourself from a goal you're partnered on</td></tr>
+              <tr><td><code>notifications</code></td><td>Toggle partner deposit and weekly digest notifications</td></tr>
               <tr><td><code>change name</code></td><td>Update your display name</td></tr>
-              <tr><td><code>change currency</code> / <code>currencies</code></td><td>Change primary and secondary currencies</td></tr>
-              <tr><td><code>subscription</code> / <code>my plan</code></td><td>Check your current plan</td></tr>
-              <tr><td><code>upgrade</code></td><td>Upgrade to thejarr+</td></tr>
-              <tr><td><code>lid</code> / <code>dashboard</code></td><td>Get your secure thelid dashboard link (thejarr+)</td></tr>
-              <tr><td><code>exit</code> / <code>cancel</code> / <code>quit</code></td><td>Cancel whatever is currently in progress</td></tr>
+              <tr><td><code>change currency</code></td><td>Change primary and secondary currencies</td></tr>
+              <tr><td><code>upgrade</code></td><td>Join the waitlist or get a payment link (thejarr+)</td></tr>
+              <tr><td><code>pulse</code> / <code>lid</code></td><td>Open your live thelid (thejarr+ only)</td></tr>
+              <tr><td><code>change pin</code></td><td>Update your thelid PIN (thejarr+ only)</td></tr>
+              <tr><td><code>feedback</code></td><td>Send a suggestion or bug report</td></tr>
+              <tr><td><code>help</code></td><td>Show all commands</td></tr>
+              <tr><td><code>exit</code> / <code>cancel</code></td><td>Cancel whatever is currently in progress</td></tr>
             </tbody>
           </table>
         </div>
