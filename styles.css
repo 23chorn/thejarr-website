@@ -223,6 +223,18 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: background 0.15s;
 }
 .nav-mobile .nav-mobile-cta:hover { background: var(--amber-deep); color: #fff; }
+.theme-toggle-mobile {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink-soft);
+}
+.theme-toggle-mobile .theme-toggle-label { font-size: 15px; font-weight: 500; }
+.theme-toggle-mobile:hover { background: var(--amber-glow); color: var(--ink); }
 
 /* ── Shared layout ───────────────────────────────────── */
 .container {

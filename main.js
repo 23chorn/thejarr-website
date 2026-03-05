@@ -6,11 +6,13 @@
 
 // ── Config ────────────────────────────────────────────
 const CONFIG = {
-  waUrl:  'https://wa.me/971502065546',
-  email:  'support@thejarr.co',
-  year:   '2026',
-  brand:  'thejarr',
-  tagline: 'Built in Dubai.',
+  waUrl:        'https://wa.me/971502065546',
+  waUrlHello:   'https://wa.me/971502065546?text=Hello',
+  waUrlUpgrade: 'https://wa.me/971502065546?text=upgrade',
+  email:        'support@thejarr.co',
+  year:         '2026',
+  brand:        'thejarr',
+  tagline:      'Built in Dubai.',
 }
 
 const WA_URL = CONFIG.waUrl  // shorthand used in templates
@@ -44,6 +46,11 @@ function buildNav() {
       <a href="pricing.html"  class="nav-link" data-page="pricing">PRICING</a>
       <a href="manual.html"   class="nav-link" data-page="manual">USER MANUAL</a>
       <a href="${WA_URL}" class="nav-mobile-cta" target="_blank">Start saving →</a>
+      <button class="theme-toggle theme-toggle-mobile" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span class="theme-toggle-label">Toggle dark mode</span>
+      </button>
     </div>
   `
 
@@ -80,7 +87,7 @@ function buildCTA() {
         <p class="body-lg">${body}</p>
       </div>
       <div class="cta-actions">
-        <a href="${WA_URL}" class="btn btn-primary btn-lg" target="_blank">${btnLabel}</a>
+        <a href="${CONFIG.waUrlHello}" class="btn btn-primary btn-lg" target="_blank">${btnLabel}</a>
         ${secondaryBtn}
         <p class="cta-note">${note}</p>
       </div>
@@ -103,11 +110,15 @@ function buildFooter() {
         <a href="pricing.html"  class="footer-link">PRICING</a>
         <a href="manual.html"   class="footer-link">USER MANUAL</a>
         <a href="mailto:${CONFIG.email}" class="footer-link">CONTACT</a>
-        <a href="privacy.html"        class="footer-link">PRIVACY</a>
-        <a href="terms.html"          class="footer-link">TERMS</a>
-        <a href="data-deletion.html"  class="footer-link">DATA DELETION</a>
       </div>
-      <p class="footer-legal">© ${CONFIG.year} ${CONFIG.brand} ${CONFIG.tagline} thejarr.co</p>
+      <div class="footer-legal" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <span>© ${CONFIG.year} ${CONFIG.brand} ${CONFIG.tagline} thejarr.co</span>
+        <span style="display:flex;gap:20px;">
+          <a href="privacy.html"       style="color:var(--amber);text-decoration:none;font-size:13px;">Privacy Policy</a>
+          <a href="terms.html"         style="color:var(--amber);text-decoration:none;font-size:13px;">Terms of Service</a>
+          <a href="data-deletion.html" style="color:var(--amber);text-decoration:none;font-size:13px;">Data Deletion</a>
+        </span>
+      </div>
     </div>
   `
 }
@@ -128,7 +139,15 @@ document.querySelectorAll('.theme-toggle').forEach(btn => {
 })
 
 // ── Sync any hardcoded WA links in HTML ───────────────
-document.querySelectorAll('a[href*="wa.me"]').forEach(a => { a.href = CONFIG.waUrl })
+document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+  if (a.dataset.wa === 'upgrade') {
+    a.href = CONFIG.waUrlUpgrade
+  } else if (a.closest('.nav') || a.closest('.nav-mobile')) {
+    a.href = CONFIG.waUrl
+  } else {
+    a.href = CONFIG.waUrlHello
+  }
+})
 
 // ── Mobile nav toggle (runs after buildNav) ───────────
 const navToggle = document.querySelector('.nav-toggle')
