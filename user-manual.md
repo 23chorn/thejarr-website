@@ -30,8 +30,8 @@ Jarr is a WhatsApp savings tracker. You interact entirely through WhatsApp — n
 17. [Supported currencies and formats](#17-supported-currencies-and-formats)
 18. [Free plan limits](#18-free-plan-limits)
 19. [Upgrading to thejarr+](#19-upgrading-to-thejarr)
-20. [thelid](#20-thelid)
-    - 20a. [Changing your thelid PIN](#20a-changing-your-thelid-pin)
+20. [myjarr](#20-myjarr)
+    - 20a. [Changing your myjarr PIN](#20a-changing-your-myjarr-pin)
 21. [Quick reference](#21-quick-reference)
 
 ---
@@ -711,8 +711,8 @@ Every **Monday at 8:00 AM UTC**, thejarr+ subscribers receive an image showing a
 > 💱 'change currency' — update currency preferences
 > ✏️ 'change name' — update your name
 > 💳 'upgrade' — unlock unlimited goals
-> 📈 'lid' — live savings dashboard
-> 🔐 'change pin' — update your lid PIN
+> 📈 'myjarr' — live savings dashboard
+> 🔐 'change pin' — update your myjarr PIN
 > 💬 'feedback' — send a suggestion or bug report
 > 🚪 'exit' — cancel any action
 >
@@ -794,7 +794,7 @@ Rates are sourced from [open.er-api.com](https://www.exchangerate-api.com) and r
 | Undo (24h) | ✅ | ✅ |
 | Summary image | ❌ | ✅ |
 | Weekly savings digest | ❌ | ✅ |
-| thelid | ❌ | ✅ |
+| myjarr | ❌ | ✅ |
 
 To free up a slot on the free plan, archive or complete one of your active goals.
 
@@ -810,11 +810,11 @@ Send `upgrade` at any time.
 
 > **You:** upgrade
 >
-> **Bot:** *The thejarr+ is coming soon* 🚀
+> **Bot:** *thejarr+ is coming soon* 🚀
 >
 > ✅ Unlimited active goals
 > ✅ Summary image (all goals at a glance)
-> ✅ thelid — your live savings dashboard
+> ✅ myjarr — your live savings dashboard
 > ✅ Partner collaboration
 >
 > We're currently in beta. Reply *yes* to join the waitlist and we'll let you know the moment it's available.
@@ -823,7 +823,7 @@ Send `upgrade` at any time.
 >
 > **Bot:** You're on the list! 🎉
 >
-> We'll message you here on WhatsApp as soon as The thejarr+ opens up.
+> We'll message you here on WhatsApp as soon as thejarr+ opens up.
 
 You'll receive a WhatsApp message with your personal payment link when subscriptions open.
 
@@ -831,11 +831,11 @@ You'll receive a WhatsApp message with your personal payment link when subscript
 
 > **You:** upgrade
 >
-> **Bot:** *The thejarr+ — $3.99/month*
+> **Bot:** *thejarr+ — $3.99/month*
 >
 > ✅ Unlimited active goals
 > ✅ Summary image (all goals at a glance)
-> ✅ thelid — your live savings dashboard
+> ✅ myjarr — your live savings dashboard
 > ✅ Partner collaboration
 > ✅ Weekly savings digest
 > ✅ Cancel anytime
@@ -854,19 +854,19 @@ Payment is processed via Stripe. Your account upgrades automatically within seco
 
 If you're already on thejarr+:
 
-> **Bot:** You're already on The thejarr+! 🎉
+> **Bot:** You're already on thejarr+! 🎉
 >
 > You can create as many goals as you like. Send 'create goal' to start a new one.
 
 ---
 
-## 20. thelid
+## 20. myjarr
 
-thelid is a live web dashboard showing all your active goals, progress, burndown charts, and top partner. It's a **thejarr+** feature.
+myjarr is a live web dashboard showing all your active goals, progress, burndown charts, and top partner. It's a **thejarr+** feature.
 
-> **You:** pulse *(or* `lid`*)*
+> **You:** myjarr *(or* `dash` *or* `dashboard`*)*
 >
-> **Bot:** Your thelid is ready 📊
+> **Bot:** Your myjarr is ready 📊
 >
 > 🔗 https://thejarr.co/go/abc12345
 > 🔐 PIN: *4829*
@@ -879,35 +879,35 @@ The link is a short URL that routes to your personal dashboard. You'll be prompt
 
 **Returning users** (PIN already set):
 
-> **Bot:** Your thelid is ready 📊
+> **Bot:** Your myjarr is ready 📊
 >
 > 🔗 https://thejarr.co/go/abc12345
 >
 > Use your existing PIN to unlock. Forgotten it? Send *change pin* to reset it.
 
-Each time you send `pulse` or `lid`, a fresh short link is generated and the previous one is automatically invalidated.
+Each time you send `myjarr`, `dash`, or `dashboard`, a fresh short link is generated and the previous one is automatically invalidated.
 
 If you're not on thejarr+:
 
-> **Bot:** thelid is a *thejarr+* feature.
+> **Bot:** myjarr is a *thejarr+* feature.
 >
-> Send *upgrade* to unlock *The thejarr+*.
+> Send *upgrade* to unlock *thejarr+*.
 
 ### Destroying your session
 
-At the bottom of the thelid there is a **Hold to Shatter Session** button. Holding it for 1.5 seconds immediately invalidates your current link so no one else can access it — useful if you shared a device or sent the link somewhere by mistake.
+At the bottom of the myjarr there is a **Hold to Shatter Session** button. Holding it for 1.5 seconds immediately invalidates your current link so no one else can access it — useful if you shared a device or sent the link somewhere by mistake.
 
-### 20a. Changing your thelid PIN
+### 20a. Changing your myjarr PIN
 
 > **You:** change pin
 >
-> **Bot:** Enter your new 4-digit PIN for the thelid.
+> **Bot:** Enter your new 4-digit PIN for the myjarr.
 >
 > Reply with 4 digits (e.g. '7291'), or *cancel* to keep your current PIN.
 
 > **You:** 5923
 >
-> **Bot:** Done! Your new thelid PIN is set. ✅
+> **Bot:** Done! Your new myjarr PIN is set. ✅
 >
 > Use it next time you open your dashboard.
 
@@ -941,8 +941,8 @@ The `change pin` command is a **thejarr+** feature. Free plan users will be prom
 | `change name` | Update your display name |
 | `change currency` | Change primary and secondary currencies |
 | `upgrade` | Join the waitlist or get a payment link (thejarr+) |
-| `pulse` / `lid` | Open your live thelid (thejarr+ only) |
-| `change pin` | Update your thelid PIN (thejarr+ only) |
+| `myjarr` / `dash` / `dashboard` | Open your myjarr dashboard (thejarr+ only) |
+| `change pin` | Update your myjarr PIN (thejarr+ only) |
 | `feedback` | Send a suggestion or bug report |
 | `help` | Show all commands |
 | `exit` / `cancel` | Cancel whatever is currently in progress |
