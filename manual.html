@@ -114,9 +114,7 @@
           <h2>Creating a goal</h2>
           <p>Trigger goal creation by sending any of: <code>create goal</code>, <code>hi</code>, <code>hello</code>, or <code>start</code>.</p>
 
-          <p>If your account has the WhatsApp Flow enabled, a native form pops up inside WhatsApp where you fill in the goal name, target amount, currency, and optional deadline — then tap submit.</p>
-
-          <p>If the Flow is not enabled, <strong class="brand">thejarr</strong> guides you through a text conversation:</p>
+          <p><strong class="brand">thejarr</strong> guides you through a short text conversation:</p>
 
           <div class="cmd-block">
             <p class="prompt">You →</p>
@@ -144,7 +142,7 @@
           </div>
 
           <div class="callout info">
-            <p><strong>Note:</strong> A goal's currency is set at creation and cannot be changed. You can deposit in any other currency — <strong class="brand">thejarr</strong> converts automatically. Free plan users can have up to 3 active goals at once. Archive or complete a goal to free a slot.</p>
+            <p><strong>Note:</strong> A goal's currency is set at creation and cannot be changed. You can deposit in any other currency — <strong class="brand">thejarr</strong> converts automatically. Free plan users can have up to 3 active goals at once. Archive a goal to free a slot.</p>
           </div>
         </div>
 
@@ -425,8 +423,6 @@
         <div class="manual-section" id="complete">
           <span class="eyebrow">08</span>
           <h2>Completing a goal</h2>
-
-          <h3>Automatic completion</h3>
           <p>When a deposit pushes a goal to 100%, it's automatically marked complete. On partnered goals, both partners receive individual celebration messages with the full contribution breakdown.</p>
           <div class="cmd-block">
             <p class="prompt">thejarr →</p>
@@ -437,24 +433,9 @@
             <p class="text"><span class="green">Congratulations, Sarah! You did it! 🚀</span></p>
             <p class="text"><span class="green">Ready to start a new goal? Send 'create goal' anytime.</span></p>
           </div>
-
-          <h3>Manual completion</h3>
-          <p>Use <code>complete</code> to mark a goal as done even if it hasn't reached 100% — useful if you reached your target through other means or want to close the goal early.</p>
-          <div class="cmd-block">
-            <p class="prompt">You →</p>
-            <p class="text">complete</p>
-            <p class="prompt" style="margin-top:12px;">thejarr →</p>
-            <p class="text"><span class="green">Mark <span class="amber">Holiday Fund</span> as complete?</span></p>
-            <p class="text"><span class="green">Final progress: AED 17,500.00 / AED 20,000.00 (87.5%)</span></p>
-            <p class="text"><span class="green"><span class="muted">(You're at 87.5% — marking complete before reaching the target.)</span></span></p>
-            <p class="text"><span class="green">Reply <span class="amber">yes</span> to confirm or <span class="amber">no</span> to cancel.</span></p>
-            <p class="prompt" style="margin-top:8px;">You →</p>
-            <p class="text">yes</p>
-            <p class="prompt" style="margin-top:8px;">thejarr →</p>
-            <p class="text"><span class="green">🎉 <span class="amber">Holiday Fund</span> marked as complete!</span></p>
-            <p class="text"><span class="green">Well done — your deposit history is saved. Ready for your next goal? Send 'create goal'.</span></p>
+          <div class="callout info">
+            <p>Want to close a goal before reaching 100%? Use <code>archive</code> instead — it stops tracking and frees up a goal slot, while preserving your deposit history.</p>
           </div>
-          <p>Partners are notified when a goal is marked complete. If you have multiple active goals, <strong class="brand">thejarr</strong> lists them and asks which one to complete.</p>
         </div>
 
         <!-- ── 9. Archiving a goal ────────────────────── -->
@@ -740,7 +721,7 @@
             </tbody>
           </table>
 
-          <p>To free up a slot on thejarr, <code>archive</code> or <code>complete</code> one of your active goals. Send <code>upgrade</code> in WhatsApp to upgrade to thejarr+.</p>
+          <p>To free up a slot on thejarr, <code>archive</code> one of your active goals. Send <code>upgrade</code> in WhatsApp to upgrade to thejarr+.</p>
         </div>
 
         <!-- ── 17. Upgrading ──────────────────────────── -->
@@ -883,7 +864,6 @@
               <tr><td><code>summary</code></td><td>Savings snapshot image (thejarr+ only)</td></tr>
               <tr><td><code>undo</code></td><td>Remove your last deposit (within 24h)</td></tr>
               <tr><td><code>archive</code></td><td>Soft-close a goal you created</td></tr>
-              <tr><td><code>complete</code></td><td>Mark a goal as done manually</td></tr>
               <tr><td><code>delete</code></td><td>Permanently delete a goal you created</td></tr>
               <tr><td><code>history</code></td><td>View completed and archived goals</td></tr>
               <tr><td><code>invite partner</code></td><td>Get a shareable invite link for a goal</td></tr>

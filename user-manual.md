@@ -17,8 +17,6 @@ Jarr is a WhatsApp savings tracker. You interact entirely through WhatsApp — n
    - 7b. [Accepting an invite](#7b-accepting-an-invite)
    - 7c. [Leaving a shared goal](#7c-leaving-a-shared-goal)
 8. [Completing a goal](#8-completing-a-goal)
-   - 8a. [Automatic completion](#8a-automatic-completion)
-   - 8b. [Manual completion](#8b-manual-completion)
 9. [Archiving a goal](#9-archiving-a-goal)
 10. [Deleting a goal](#10-deleting-a-goal)
 11. [Viewing goal history](#11-viewing-goal-history)
@@ -88,9 +86,7 @@ Setup is complete. You won't be asked again unless you use `change currency`.
 
 Send any of: `create goal`, `hi`, `hello`, or `start`.
 
-If your account has the WhatsApp Flow enabled, a form pops up inside WhatsApp where you fill in the goal name, target amount, currency, and optional deadline — then tap submit.
-
-If the Flow is not enabled, the bot guides you through a text conversation:
+The bot guides you through a text conversation:
 
 > **You:** create goal
 >
@@ -119,7 +115,7 @@ If the Flow is not enabled, the bot guides you through a text conversation:
 
 **Notes:**
 - The goal's currency is set at creation and does not change. You can deposit in any other currency and it converts automatically.
-- Free plan users can have up to 3 active goals at once. Archive or complete a goal to free a slot.
+- Free plan users can have up to 3 active goals at once. Archive a goal to free a slot.
 
 ---
 
@@ -467,36 +463,6 @@ When a deposit pushes progress to 100%, the goal is automatically marked complet
 
 **Partnered:** Both partners receive individual celebration messages with the full contribution breakdown.
 
-### 8b. Manual completion
-
-Use `complete` to mark a goal as done even if it hasn't reached 100%. This is useful if you reached your target through other means or want to close the goal early.
-
-> **You:** complete
-
-**Single active goal:**
-
-> **Bot:** Mark *Holiday Fund* as complete?
->
-> Final progress: AED 17,500.00 / AED 20,000.00 (87.5%)
->
-> _(You're at 87.5% — marking complete before reaching the target.)_
->
-> Reply *yes* to confirm or *no* to cancel.
-
-> **You:** yes
->
-> **Bot:** 🎉 *Holiday Fund* marked as complete!
->
-> Well done — your deposit history is saved. Ready for your next goal? Send 'create goal'.
-
-Partners are notified:
-
-> **Bot (to partner):** 🎉 *Holiday Fund* has been marked complete by your partner!
->
-> Great work to you both. Your deposit history is preserved.
-
-**Multiple active goals:** The bot lists your goals and asks which one to complete.
-
 ---
 
 ## 9. Archiving a goal
@@ -796,7 +762,7 @@ Rates are sourced from [open.er-api.com](https://www.exchangerate-api.com) and r
 | Weekly savings digest | ❌ | ✅ |
 | myjarr | ❌ | ✅ |
 
-To free up a slot on the free plan, archive or complete one of your active goals.
+To free up a slot on the free plan, archive one of your active goals.
 
 Send `upgrade` for information on the paid plan.
 
@@ -932,7 +898,6 @@ The `change pin` command is a **thejarr+** feature. Free plan users will be prom
 | `summary` | Savings snapshot image (thejarr+ only) |
 | `undo` | Remove your last deposit (within 24h) |
 | `archive` | Soft-close a goal you created |
-| `complete` | Mark a goal as done manually |
 | `delete` | Permanently delete a goal you created |
 | `history` | View completed and archived goals |
 | `invite partner` | Get a shareable invite link for a goal |
