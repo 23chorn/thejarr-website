@@ -332,6 +332,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
 .footer-links { display: flex; gap: 24px; }
 .footer-link { font-size: 14px; color: var(--ink-muted); transition: color 0.15s; }
 .footer-link:hover { color: var(--ink); }
+.footer-instagram { display: flex; align-items: center; }
 .footer-legal { font-size: 13px; color: var(--ink-muted); width: 100%; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
 
 /* ── Utility ──────────────────────────────────────────── */
