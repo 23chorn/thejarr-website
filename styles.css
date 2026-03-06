@@ -549,14 +549,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spac
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--amber);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 13px;
-  color: var(--ink);
+  object-fit: cover;
   flex-shrink: 0;
 }
 .phone-name { color: #fff; font-size: 14px; font-weight: 600; }
