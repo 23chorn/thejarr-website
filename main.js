@@ -15,9 +15,9 @@
 
 // ── Config ────────────────────────────────────────────
 const CONFIG = {
-  waUrl:        'https://wa.me/971502065546',
-  waUrlHello:   'https://wa.me/971502065546?text=Hello',
-  waUrlUpgrade: 'https://wa.me/971502065546?text=upgrade',
+  waUrl:        'https://wa.me/971554267583',
+  waUrlHello:   'https://wa.me/971554267583?text=Hello',
+  waUrlUpgrade: 'https://wa.me/971554267583?text=upgrade',
   email:        'chris@thejarr.co',
   year:         '2026',
   brand:        'thejarr',
